@@ -397,24 +397,51 @@ ul,ol{list-style:none}
 /* ==============================================================
    CONTATTI
    ============================================================== */
-.contact{padding-block:var(--sec);position:relative;overflow:hidden}
-.contact::before{content:"";position:absolute;left:50%;top:-30%;width:90vmax;height:90vmax;transform:translateX(-50%);border-radius:50%;background:radial-gradient(circle,rgba(38,63,53,.55),transparent 62%);pointer-events:none}
-.contact__grid{position:relative;display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:start}
-.contact__head{grid-column:1 / span 7}
-.contact__head .kicker{margin-bottom:28px}
-.contact__head .title{font-size:clamp(48px,6.8vw,112px)}
-.contact__head > p{margin-top:28px;max-width:42ch;font-size:clamp(16px,1.2vw,19px);color:rgba(245,241,232,.75)}
-.direct{margin-top:46px;padding-top:28px;border-top:1px solid var(--line-d);max-width:600px;display:flex;flex-direction:column;align-items:flex-start;gap:14px}
-.direct small{font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--mute-d)}
-.direct__mail{position:relative;display:inline-flex;align-items:center;gap:16px;max-width:100%;font-family:var(--serif);font-weight:400;font-size:clamp(22px,2.3vw,34px);line-height:1.25;color:var(--ivory);padding-bottom:8px;overflow-wrap:anywhere;transition:color .4s}
-.direct__mail::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--bronze);transform:scaleX(.18);transform-origin:left;transition:transform .7s var(--out)}
-.direct__mail:hover,.direct__mail:focus-visible{color:var(--bronze)}
-.direct__mail:hover::after,.direct__mail:focus-visible::after{transform:scaleX(1)}
-.direct__mail svg{width:24px;height:11px;flex:none;transition:transform .5s var(--out)}
-.direct__mail:hover svg{transform:translateX(6px)}
-.direct__meta{display:flex;flex-wrap:wrap;align-items:center;gap:10px 22px;font-size:13.5px;color:var(--mute-d)}
-.direct__meta .link{color:var(--ivory)}
-.composer{grid-column:9 / span 4;background:var(--carbon-2);border:1px solid var(--line-d);padding:clamp(24px,2.6vw,36px)}
+.contact{position:relative;overflow:hidden;background:var(--carbon);padding-block:calc(var(--sec) * 1.05) var(--sec)}
+.contact::before{content:"";position:absolute;inset:0;background:radial-gradient(55% 60% at 88% 8%,rgba(198,166,106,.11),transparent 70%),radial-gradient(40% 50% at 0% 100%,rgba(198,166,106,.05),transparent 70%);pointer-events:none}
+.contact__thread{position:absolute;left:var(--g);top:0;width:1px;height:clamp(56px,7vw,100px);background:linear-gradient(var(--bronze),rgba(198,166,106,0));transform-origin:top}
+.js .contact__thread{transform:scaleY(0);transition:transform 1.4s var(--io) .1s}
+.js .contact:has(.contact__kicker.in) .contact__thread{transform:none}
+@supports not selector(:has(*)){.js .contact__thread{transform:none}}
+.contact__in{position:relative}
+.contact__kicker{margin-bottom:clamp(30px,4vw,48px)}
+.contact__title{font-family:var(--serif);font-weight:300;font-size:clamp(46px,8.4vw,148px);line-height:.95;letter-spacing:-.028em}
+.contact__title em{font-style:italic;color:var(--bronze)}
+.contact__rule{position:relative;display:block;height:1px;background:var(--line-d);margin-block:clamp(48px,6.5vw,92px) clamp(40px,5vw,64px);transform-origin:left}
+.contact__rule::before{content:"";position:absolute;left:0;top:-1px;width:clamp(60px,8vw,120px);height:3px;background:var(--bronze)}
+.js .contact__rule[data-r]{opacity:1;transform:scaleX(0);transition:transform 1.6s var(--io)}
+.js .contact__rule[data-r].in{transform:none}
+.contact__row{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:end}
+.contact__lead{grid-column:1 / span 5;font-family:var(--serif);font-weight:300;font-size:clamp(23px,2.05vw,31px);line-height:1.38;color:rgba(245,241,232,.86);max-width:30ch}
+.contact__action{grid-column:8 / span 5;display:flex;flex-direction:column;gap:22px}
+.cta{position:relative;isolation:isolate;overflow:hidden;display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:86px;padding:0 13px 0 34px;background:var(--bronze);color:var(--carbon);font-size:12px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;transition:color .55s var(--ease),transform .3s var(--ease),box-shadow .6s var(--ease)}
+.cta::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--ivory);transform:translateY(101%);transition:transform .75s var(--out)}
+.cta:hover,.cta:focus-visible{box-shadow:0 24px 50px -24px rgba(198,166,106,.55)}
+.cta:hover::before,.cta:focus-visible::before{transform:none}
+.cta:active{transform:scale(.985)}
+.cta__icon{flex:none;display:grid;place-items:center;width:60px;height:60px;border-radius:50%;background:var(--carbon);color:var(--ivory);transition:transform .7s var(--out),background-color .5s}
+.cta__icon svg{width:16px;height:16px;transition:transform .7s var(--out)}
+.cta:hover .cta__icon,.cta:focus-visible .cta__icon{transform:scale(1.06)}
+.cta:hover .cta__icon svg,.cta:focus-visible .cta__icon svg{transform:rotate(45deg)}
+.contact__mail{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 14px;font-size:13.5px;color:var(--mute-d)}
+.contact__mail a{color:var(--ivory);background:linear-gradient(var(--bronze),var(--bronze)) left bottom/0% 1px no-repeat,linear-gradient(rgba(245,241,232,.25),rgba(245,241,232,.25)) left bottom/100% 1px no-repeat;padding-bottom:3px;overflow-wrap:anywhere;transition:color .4s,background-size .7s var(--out)}
+.contact__mail a:hover,.contact__mail a:focus-visible{color:var(--bronze);background-size:100% 1px,100% 1px}
+.contact__copy{font-size:10.5px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--bronze);padding:4px 0;transition:color .3s}
+.contact__copy:hover{color:var(--ivory)}
+.contact__note{min-height:20px;font-size:12.5px;color:var(--bronze)}
+.brief{margin-top:clamp(64px,8vw,110px);border-top:1px solid var(--line-d);border-bottom:1px solid var(--line-d)}
+.brief summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:24px 0;cursor:pointer;font-size:11.5px;font-weight:400;letter-spacing:.22em;text-transform:uppercase;color:var(--mute-d);transition:color .3s}
+.brief summary::-webkit-details-marker{display:none}
+.brief summary:hover,.brief[open] summary{color:var(--ivory)}
+.brief summary i{position:relative;flex:none;width:34px;height:34px;border:1px solid var(--line-d);border-radius:50%;transition:transform .6s var(--out),border-color .3s}
+.brief summary i::before,.brief summary i::after{content:"";position:absolute;left:50%;top:50%;width:11px;height:1px;background:currentColor;transform:translate(-50%,-50%)}
+.brief summary i::after{transform:translate(-50%,-50%) rotate(90deg);transition:transform .5s var(--out)}
+.brief summary:hover i{border-color:var(--bronze)}
+.brief[open] summary i{transform:rotate(180deg)}
+.brief[open] summary i::after{transform:translate(-50%,-50%) rotate(0)}
+.brief[open] .composer{animation:briefIn .7s var(--out)}
+@keyframes briefIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.composer{max-width:760px;margin-bottom:30px;background:var(--carbon-2);border:1px solid var(--line-d);padding:clamp(24px,2.6vw,36px)}
 .composer h3{font-family:var(--serif);font-weight:400;font-size:28px;line-height:1.1;margin-bottom:6px}
 .composer > p{font-size:14px;color:var(--mute-d);margin-bottom:22px}
 .composer fieldset{border:0;padding:0;margin:0 0 20px}
@@ -434,7 +461,6 @@ ul,ol{list-style:none}
 .btn[aria-disabled="true"]{--bg:transparent;--fg:var(--mute-d);--fill:transparent;--fgh:var(--mute-d);border:1px dashed rgba(198,166,106,.5);cursor:not-allowed}
 .btn[aria-disabled="true"]::before{display:none}
 .btn[aria-disabled="true"] svg{display:none}
-.composer__note{min-height:20px;margin-top:12px;font-size:12.5px;color:var(--bronze)}
 
 /* ==============================================================
    FOOTER
@@ -484,8 +510,8 @@ ul,ol{list-style:none}
   .method__aside{grid-column:1 / -1;position:static;margin-bottom:60px}
   .steps{grid-column:1 / -1}
   .method__meter{display:none}
-  .contact__head{grid-column:1 / -1}
-  .composer{grid-column:1 / span 8;margin-top:50px}
+  .contact__lead{grid-column:1 / -1}
+  .contact__action{grid-column:1 / span 9;margin-top:26px}
   .foot__brand{grid-column:1 / -1}
   .foot__col,.foot__col:last-child{grid-column:span 6}
 }
@@ -512,8 +538,12 @@ ul,ol{list-style:none}
   .work__count{display:none}
   .steps{padding-left:32px}
   .step::before{left:-37px}
-  .composer{grid-column:1 / -1}
-  .direct__mail{font-size:clamp(18px,5.3vw,26px);gap:10px}
+  .contact__action{grid-column:1 / -1}
+  .contact__title{font-size:clamp(42px,12vw,64px);max-width:none}
+  .cta{min-height:74px;padding-left:22px;font-size:11px;letter-spacing:.18em}
+  .cta__icon{width:52px;height:52px}
+  .brief summary{font-size:10.5px;letter-spacing:.16em}
+  .brief{margin-top:44px}
   .foot__col,.foot__col:last-child{grid-column:1 / -1}
 }
 @media (prefers-reduced-motion:reduce){
@@ -522,6 +552,7 @@ ul,ol{list-style:none}
   .js [data-r],.js [data-in],.js .stack{opacity:1!important;transform:none!important}
   .js .split .ln > span,.js .h1 .ln > span{transform:none!important}
   .js [data-veil]::after{display:none}
+  .js .contact__thread,.js .contact__rule[data-r]{transform:none!important}
   .ticker__track,.seal svg,.hero__halo,.chip{animation:none!important}
 }
 </style>
@@ -776,38 +807,49 @@ ul,ol{list-style:none}
 
 <!-- ============================ CONTATTI ============================ -->
 <section class="contact" id="contatti" aria-labelledby="contact-title">
-  <div class="wrap contact__grid">
-    <div class="contact__head">
-      <p class="kicker" data-r>Contatti</p>
-      <h2 class="title split" id="contact-title" data-r="fade"><span class="ln"><span>Il tuo prossimo</span></span><span class="ln"><span>progetto</span></span><span class="ln"><span><em>inizia da qui.</em></span></span></h2>
-      <p data-r style="--d:.15s">Hai un’attività o un’idea da trasformare in un progetto digitale? Raccontacela.</p>
-      <div class="direct" data-r style="--d:.25s">
-        <small>Scrivici</small>
-        <a class="direct__mail" id="dMail" href="mailto:studioweb.digitalservice@gmail.com">studioweb.digitalservice@gmail.com <svg viewBox="0 0 22 10" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M0 5h20.5M16.5 1l4 4-4 4"/></svg></a>
-        <div class="direct__meta"><span>Per idee, richieste e informazioni sui progetti.</span><button class="link" type="button" id="bCopyMail">Copia l’indirizzo</button></div>
+  <span class="contact__thread" aria-hidden="true"></span>
+  <div class="wrap contact__in">
+    <p class="kicker contact__kicker" data-r>Studio Web · Contatti</p>
+    <h2 class="contact__title split" id="contact-title" data-r="fade"><span class="ln"><span>Ogni grande progetto</span></span><span class="ln"><span>inizia da <em>un’idea.</em></span></span></h2>
+    <span class="contact__rule" data-r aria-hidden="true"></span>
+    <div class="contact__row">
+      <p class="contact__lead" data-r>Raccontaci cosa hai in mente. Daremo forma insieme alla tua prossima presenza digitale.</p>
+      <div class="contact__action" data-r style="--d:.15s">
+        <a class="cta" id="ctaMail" href="mailto:studioweb.digitalservice@gmail.com?subject=Nuovo%20progetto%20%E2%80%94%20Studio%20Web&amp;body=Buongiorno%20Studio%20Web%2C%0A%0Avorrei%20parlarvi%20di%20un%20nuovo%20progetto.%20Ecco%20qualche%20informazione%20per%20iniziare%3A%0A%0A-%20La%20mia%20attivit%C3%A0%20o%20il%20mio%20brand%3A%0A-%20Il%20progetto%20che%20ho%20in%20mente%3A%0A-%20Servizi%20di%20interesse%20%28sito%20web%2C%20identit%C3%A0%20visiva%2C%20soluzioni%20digitali%29%3A%0A-%20Esigenze%20o%20tempistiche%20particolari%3A%0A%0AResto%20in%20attesa%20di%20un%20vostro%20riscontro.%0AGrazie%20e%20a%20presto%2C%0A">
+          <span>Parliamo del tuo progetto</span>
+          <span class="cta__icon" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M3.5 12.5l9-9M5 3.5h7.5V11"/></svg></span>
+        </a>
+        <div class="contact__mail">
+          <span>oppure scrivi a</span>
+          <a id="dMail" href="mailto:studioweb.digitalservice@gmail.com">studioweb.digitalservice@gmail.com</a>
+          <button class="contact__copy" type="button" id="bCopyMail">Copia</button>
+        </div>
+        <p class="contact__note" id="cNote" role="status" aria-live="polite"></p>
       </div>
     </div>
-    <form class="composer" id="composer" data-r style="--d:.2s" aria-labelledby="comp-title" novalidate>
-      <h3 id="comp-title">Raccontaci il tuo progetto</h3>
-      <p>Scegli cosa ti serve: prepariamo noi il messaggio, tu lo invii con un clic.</p>
-      <fieldset>
-        <legend>Di cosa hai bisogno?</legend>
-        <div class="opts">
-          <label class="opt"><input type="checkbox" name="servizio" value="un sito web" checked><span>Sito web</span></label>
-          <label class="opt"><input type="checkbox" name="servizio" value="un’identità visiva"><span>Identità visiva</span></label>
-          <label class="opt"><input type="checkbox" name="servizio" value="una landing page"><span>Landing page</span></label>
-          <label class="opt"><input type="checkbox" name="servizio" value="un consiglio su cosa scegliere"><span>Non lo so ancora</span></label>
+    <details class="brief" data-r>
+      <summary><span>Preferisci una traccia? Prepara il messaggio in pochi clic</span><i aria-hidden="true"></i></summary>
+      <form class="composer" id="composer" aria-labelledby="comp-title" novalidate>
+        <h3 id="comp-title">Raccontaci il tuo progetto</h3>
+        <p>Scegli cosa ti serve: prepariamo noi il messaggio, tu lo invii con un clic.</p>
+        <fieldset>
+          <legend>Di cosa hai bisogno?</legend>
+          <div class="opts">
+            <label class="opt"><input type="checkbox" name="servizio" value="un sito web" checked><span>Sito web</span></label>
+            <label class="opt"><input type="checkbox" name="servizio" value="un’identità visiva"><span>Identità visiva</span></label>
+            <label class="opt"><input type="checkbox" name="servizio" value="una landing page"><span>Landing page</span></label>
+            <label class="opt"><input type="checkbox" name="servizio" value="un consiglio su cosa scegliere"><span>Non lo so ancora</span></label>
+          </div>
+        </fieldset>
+        <label for="cAtt">La tua attività</label>
+        <input type="text" id="cAtt" name="attivita" placeholder="Es. ristorante, negozio, studio professionale" autocomplete="organization">
+        <div class="preview" id="preview" aria-live="polite"></div>
+        <div class="composer__btns">
+          <a class="btn" id="bMail" href="mailto:studioweb.digitalservice@gmail.com">Invia via email <svg viewBox="0 0 22 10" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M0 5h20.5M16.5 1l4 4-4 4"/></svg></a>
+          <button class="link" type="button" id="bCopy" style="align-self:flex-start;margin-top:4px">Copia il messaggio</button>
         </div>
-      </fieldset>
-      <label for="cAtt">La tua attività</label>
-      <input type="text" id="cAtt" name="attivita" placeholder="Es. ristorante, negozio, studio professionale" autocomplete="organization">
-      <div class="preview" id="preview" aria-live="polite"></div>
-      <div class="composer__btns">
-        <a class="btn" id="bMail" href="mailto:studioweb.digitalservice@gmail.com">Invia via email <svg viewBox="0 0 22 10" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M0 5h20.5M16.5 1l4 4-4 4"/></svg></a>
-        <button class="link" type="button" id="bCopy" style="align-self:flex-start;margin-top:4px">Copia il messaggio</button>
-      </div>
-      <p class="composer__note" id="cNote" role="status"></p>
-    </form>
+      </form>
+    </details>
   </div>
 </section>
 
@@ -1004,9 +1046,12 @@ const CONFIG = {
   /* ---------- contatti ---------- */
   const EMAIL = (CONFIG.email || '').trim();
   const dMail = $('#dMail');
+  const SUBJECT = 'Nuovo progetto — Studio Web';
+  const BODY = "Buongiorno Studio Web,\n\nvorrei parlarvi di un nuovo progetto. Ecco qualche informazione per iniziare:\n\n- La mia attività o il mio brand:\n- Il progetto che ho in mente:\n- Servizi di interesse (sito web, identità visiva, soluzioni digitali):\n- Esigenze o tempistiche particolari:\n\nResto in attesa di un vostro riscontro.\nGrazie e a presto,\n";
   if (EMAIL) {
     dMail.href = `mailto:${EMAIL}`;
-    dMail.firstChild.textContent = EMAIL + ' ';
+    dMail.textContent = EMAIL;
+    $('#ctaMail').href = `mailto:${EMAIL}?subject=${encodeURIComponent(SUBJECT)}&body=${encodeURIComponent(BODY)}`;
   }
 
   const form = $('#composer'), prev = $('#preview'), note = $('#cNote');
@@ -1020,11 +1065,11 @@ const CONFIG = {
   const update = () => {
     const m = message();
     prev.textContent = m;
-    if (EMAIL) bM.href = `mailto:${EMAIL}?subject=${encodeURIComponent('Richiesta progetto')}&body=${encodeURIComponent(m)}`;
+    if (EMAIL) bM.href = `mailto:${EMAIL}?subject=${encodeURIComponent(SUBJECT)}&body=${encodeURIComponent(m)}`;
   };
   form.addEventListener('input', update);
   form.addEventListener('submit', e => e.preventDefault());
-  bM.addEventListener('click', () => { note.textContent = 'Si sta aprendo il tuo programma di posta con il messaggio già pronto.'; });
+  [bM, $('#ctaMail')].forEach(b => b.addEventListener('click', () => { note.textContent = 'Si sta aprendo il tuo programma di posta con il messaggio già pronto.'; }));
 
   const copy = async (text, ok, selectEl) => {
     try { await navigator.clipboard.writeText(text); note.textContent = ok; }

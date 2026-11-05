@@ -429,35 +429,85 @@ ul,ol{list-style:none}
 .contact__copy{font-size:10.5px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--bronze);padding:4px 0;transition:color .3s}
 .contact__copy:hover{color:var(--ivory)}
 .contact__note{min-height:20px;font-size:12.5px;color:var(--bronze)}
-.brief{margin-top:clamp(64px,8vw,110px);border-top:1px solid var(--line-d);border-bottom:1px solid var(--line-d)}
-.brief summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:24px 0;cursor:pointer;font-size:11.5px;font-weight:400;letter-spacing:.22em;text-transform:uppercase;color:var(--mute-d);transition:color .3s}
-.brief summary::-webkit-details-marker{display:none}
-.brief summary:hover,.brief[open] summary{color:var(--ivory)}
-.brief summary i{position:relative;flex:none;width:34px;height:34px;border:1px solid var(--line-d);border-radius:50%;transition:transform .6s var(--out),border-color .3s}
-.brief summary i::before,.brief summary i::after{content:"";position:absolute;left:50%;top:50%;width:11px;height:1px;background:currentColor;transform:translate(-50%,-50%)}
-.brief summary i::after{transform:translate(-50%,-50%) rotate(90deg);transition:transform .5s var(--out)}
-.brief summary:hover i{border-color:var(--bronze)}
-.brief[open] summary i{transform:rotate(180deg)}
-.brief[open] summary i::after{transform:translate(-50%,-50%) rotate(0)}
-.brief[open] .composer{animation:briefIn .7s var(--out)}
-@keyframes briefIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
-.composer{max-width:760px;margin-bottom:30px;background:var(--carbon-2);border:1px solid var(--line-d);padding:clamp(24px,2.6vw,36px)}
-.composer h3{font-family:var(--serif);font-weight:400;font-size:28px;line-height:1.1;margin-bottom:6px}
-.composer > p{font-size:14px;color:var(--mute-d);margin-bottom:22px}
-.composer fieldset{border:0;padding:0;margin:0 0 20px}
-.composer legend,.composer label{display:block;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute-d);margin-bottom:10px;padding:0}
-.opts{display:flex;flex-wrap:wrap;gap:8px}
-.opt{position:relative}
-.opt input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
-.opt span{display:inline-block;padding:9px 14px;border:1px solid rgba(245,241,232,.22);font-size:13px;transition:background-color .3s,color .3s,border-color .3s}
-.opt input:checked + span{background:var(--bronze);border-color:var(--bronze);color:var(--carbon)}
-.opt input:focus-visible + span{outline:1px solid var(--bronze);outline-offset:3px}
-.opt:hover span{border-color:var(--bronze)}
-.composer input[type=text]{width:100%;background:transparent;border:0;border-bottom:1px solid rgba(245,241,232,.25);padding:10px 0;outline:0;font-size:15px;transition:border-color .3s;border-radius:0}
-.composer input[type=text]:focus{border-color:var(--bronze)}
-.preview{margin:20px 0;padding:16px;background:rgba(245,241,232,.04);border-left:1px solid var(--bronze);font-size:14px;line-height:1.6;color:rgba(245,241,232,.85);min-height:84px;white-space:pre-line}
-.composer__btns{display:flex;flex-direction:column;gap:10px}
-.composer__btns .btn{width:100%;justify-content:space-between}
+/* ---------- modulo "Raccontaci il tuo progetto" ---------- */
+.req{position:relative;margin-top:clamp(70px,9vw,130px);display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);background:var(--carbon-2);border:1px solid var(--line-d)}
+.req::before{content:"";position:absolute;left:-1px;top:-1px;width:clamp(80px,10vw,150px);height:2px;background:var(--bronze)}
+.req__side{position:relative;padding:clamp(30px,3.6vw,56px);border-right:1px solid var(--line-d);display:flex;flex-direction:column;gap:clamp(28px,3vw,40px)}
+.req__eyebrow{font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--bronze);display:flex;align-items:center;gap:12px}
+.req__eyebrow::before{content:"";width:26px;height:1px;background:currentColor}
+.req__title{font-family:var(--serif);font-weight:300;font-size:clamp(34px,3.4vw,52px);line-height:1.02;letter-spacing:-.015em;margin-top:18px}
+.req__title em{font-style:italic;color:var(--bronze)}
+.req__intro{margin-top:16px;font-size:15px;color:rgba(245,241,232,.66);max-width:36ch}
+.summary{margin-top:auto;border:1px solid var(--line-d);background:rgba(245,241,232,.025)}
+.summary__head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 18px;border-bottom:1px solid var(--line-d);font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--mute-d)}
+.summary__state{display:inline-flex;align-items:center;gap:8px;letter-spacing:.14em;color:var(--mute-d);transition:color .4s}
+.summary__state i{width:7px;height:7px;border-radius:50%;border:1px solid currentColor;transition:background-color .4s}
+.summary.is-ready .summary__state{color:var(--bronze)}
+.summary.is-ready .summary__state i{background:var(--bronze)}
+.summary dl{display:grid;grid-template-columns:auto 1fr;gap:0;margin:0}
+.summary dt,.summary dd{margin:0;padding:13px 18px;border-bottom:1px solid var(--line-d);font-size:14px}
+.summary dt{color:var(--mute-d);padding-right:8px}
+.summary dd{text-align:right;color:var(--ivory);overflow-wrap:anywhere}
+.summary dd.is-empty{color:rgba(245,241,232,.38);font-style:italic}
+.summary dd.flash{animation:flash .9s var(--out)}
+@keyframes flash{0%{color:var(--bronze);transform:translateY(4px);opacity:.3}100%{transform:none;opacity:1}}
+.summary details{padding:0 18px}
+.summary summary{list-style:none;display:flex;justify-content:space-between;align-items:center;padding:13px 0;cursor:pointer;font-size:12px;color:var(--mute-d);transition:color .3s}
+.summary summary::-webkit-details-marker{display:none}
+.summary summary:hover{color:var(--ivory)}
+.summary summary b{font-weight:400;transition:transform .5s var(--out)}
+.summary details[open] summary b{transform:rotate(45deg)}
+.preview{margin:0 0 16px;padding:14px 16px;background:rgba(0,0,0,.25);border-left:1px solid var(--bronze);font-size:13.5px;line-height:1.65;color:rgba(245,241,232,.82);white-space:pre-line}
+
+.req__main{padding:clamp(30px,3.6vw,56px);display:flex;flex-direction:column;gap:clamp(30px,3.2vw,44px)}
+.step-h{display:flex;align-items:baseline;gap:14px;margin:0 0 16px;padding:0}
+.step-h b{font-family:var(--serif);font-weight:400;font-size:15px;color:var(--bronze);letter-spacing:.08em}
+.step-h span{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--ivory)}
+.step-h small{margin-left:auto;font-size:11.5px;color:var(--mute-d);letter-spacing:.02em}
+.req fieldset{border:0;margin:0;padding:0;min-width:0}
+.svcs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.svc-card{position:relative;display:block;cursor:pointer;min-width:0}
+.svc-card input{position:absolute;opacity:0;width:1px;height:1px;margin:0}
+.svc-card__box{position:relative;display:flex;flex-direction:column;gap:6px;height:100%;padding:18px 54px 18px 18px;border:1px solid rgba(245,241,232,.16);background:rgba(245,241,232,.015);overflow:hidden;transition:border-color .45s var(--ease),background-color .45s var(--ease),transform .45s var(--out)}
+.svc-card__box::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:100%;background:var(--bronze);transform:scaleX(0);transform-origin:left;transition:transform .6s var(--out)}
+.svc-card__name{font-family:var(--serif);font-weight:400;font-size:clamp(21px,1.7vw,25px);line-height:1.1;color:var(--ivory);transition:color .4s}
+.svc-card__desc{font-size:13px;line-height:1.5;color:var(--mute-d)}
+.svc-card__check{position:absolute;right:16px;top:18px;width:24px;height:24px;border-radius:50%;border:1px solid rgba(245,241,232,.28);display:grid;place-items:center;transition:background-color .4s,border-color .4s,transform .5s var(--out)}
+.svc-card__check svg{width:12px;height:12px;color:var(--carbon);stroke-dasharray:20;stroke-dashoffset:20;transition:stroke-dashoffset .45s var(--out) .05s}
+.svc-card:hover .svc-card__box{border-color:rgba(198,166,106,.55);transform:translateY(-2px)}
+.svc-card input:checked + .svc-card__box{border-color:var(--bronze);background:rgba(198,166,106,.08)}
+.svc-card input:checked + .svc-card__box::after{transform:scaleX(1)}
+.svc-card input:checked + .svc-card__box .svc-card__name{color:var(--bronze)}
+.svc-card input:checked + .svc-card__box .svc-card__check{background:var(--bronze);border-color:var(--bronze);transform:scale(1.08)}
+.svc-card input:checked + .svc-card__box .svc-card__check svg{stroke-dashoffset:0}
+.svc-card input:focus-visible + .svc-card__box{outline:1px solid var(--bronze);outline-offset:3px}
+
+.field{position:relative}
+.field input{width:100%;background:transparent;border:0;border-bottom:1px solid rgba(245,241,232,.22);border-radius:0;outline:0;padding:12px 40px 14px 0;font-family:var(--serif);font-weight:300;font-size:clamp(22px,1.9vw,28px);color:var(--ivory);transition:border-color .3s}
+.field input::placeholder{color:rgba(245,241,232,.3);font-style:italic}
+.field__line{position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--bronze);transform:scaleX(0);transform-origin:left;transition:transform .7s var(--out)}
+.field input:focus ~ .field__line,.field.has-value .field__line{transform:scaleX(1)}
+.field__ok{position:absolute;right:4px;top:50%;width:22px;height:22px;margin-top:-11px;color:var(--bronze);opacity:0;transform:scale(.6);transition:opacity .4s,transform .5s var(--out)}
+.field.has-value .field__ok{opacity:1;transform:none}
+
+.req__actions{display:flex;flex-direction:column;gap:16px;padding-top:6px}
+.send{position:relative;isolation:isolate;overflow:hidden;display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:78px;padding:0 12px 0 30px;background:var(--bronze);color:var(--carbon);font-size:12px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;transition:color .55s var(--ease),transform .3s var(--ease),box-shadow .6s var(--ease)}
+.send::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--ivory);transform:translateY(101%);transition:transform .75s var(--out)}
+.send:hover,.send:focus-visible{box-shadow:0 26px 50px -26px rgba(198,166,106,.6)}
+.send:hover::before,.send:focus-visible::before{transform:none}
+.send:active{transform:scale(.985)}
+.send__icon{flex:none;display:grid;place-items:center;width:54px;height:54px;border-radius:50%;background:var(--carbon);color:var(--ivory);transition:transform .7s var(--out)}
+.send__icon svg{width:15px;height:15px;transition:transform .7s var(--out)}
+.send:hover .send__icon svg,.send:focus-visible .send__icon svg{transform:rotate(45deg)}
+.req__sub{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 20px}
+.copybtn{display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--mute-d);padding:8px 0;transition:color .3s}
+.copybtn svg{width:15px;height:15px;transition:transform .5s var(--out)}
+.copybtn:hover{color:var(--ivory)}
+.copybtn:hover svg{transform:translateY(-2px)}
+.req__hint{font-size:12.5px;color:var(--mute-d)}
+.toast-ok{position:absolute;right:clamp(30px,3.6vw,56px);bottom:clamp(30px,3.6vw,56px);display:inline-flex;align-items:center;gap:10px;padding:10px 16px;background:var(--ivory);color:var(--carbon);font-size:12.5px;font-weight:500;letter-spacing:.04em;box-shadow:0 18px 40px -16px rgba(0,0,0,.6);opacity:0;transform:translateY(12px);pointer-events:none;transition:opacity .4s var(--ease),transform .6s var(--out)}
+.toast-ok svg{width:16px;height:16px;color:var(--bronze-ink)}
+.toast-ok.show{opacity:1;transform:none}
 .btn[aria-disabled="true"]{--bg:transparent;--fg:var(--mute-d);--fill:transparent;--fgh:var(--mute-d);border:1px dashed rgba(198,166,106,.5);cursor:not-allowed}
 .btn[aria-disabled="true"]::before{display:none}
 .btn[aria-disabled="true"] svg{display:none}
@@ -512,6 +562,9 @@ ul,ol{list-style:none}
   .method__meter{display:none}
   .contact__lead{grid-column:1 / -1}
   .contact__action{grid-column:1 / span 9;margin-top:26px}
+  .req{grid-template-columns:1fr}
+  .req__side{border-right:0;border-bottom:1px solid var(--line-d)}
+  .summary{margin-top:0}
   .foot__brand{grid-column:1 / -1}
   .foot__col,.foot__col:last-child{grid-column:span 6}
 }
@@ -542,8 +595,18 @@ ul,ol{list-style:none}
   .contact__title{font-size:clamp(42px,12vw,64px);max-width:none}
   .cta{min-height:74px;padding-left:22px;font-size:11px;letter-spacing:.18em}
   .cta__icon{width:52px;height:52px}
-  .brief summary{font-size:10.5px;letter-spacing:.16em}
-  .brief{margin-top:44px}
+  .req{margin-top:56px}
+  .svcs{grid-template-columns:1fr}
+  .svc-card__box{padding:15px 50px 15px 16px}
+  .send{min-height:70px;padding-left:20px;font-size:11px;letter-spacing:.16em}
+  .send__icon{width:48px;height:48px}
+  .toast-ok{left:20px;right:20px;justify-content:center}
+  .req__sub{flex-direction:column;align-items:flex-start}
+  .summary__head{padding:12px 16px;letter-spacing:.14em;font-size:9.5px}
+  .summary__state{letter-spacing:.08em;white-space:nowrap}
+  .step-h{flex-wrap:wrap;row-gap:4px}
+  .step-h small{margin-left:0;flex-basis:100%}
+  .summary dt,.summary dd{padding:12px 16px}
   .foot__col,.foot__col:last-child{grid-column:1 / -1}
 }
 @media (prefers-reduced-motion:reduce){
@@ -827,29 +890,56 @@ ul,ol{list-style:none}
         <p class="contact__note" id="cNote" role="status" aria-live="polite"></p>
       </div>
     </div>
-    <details class="brief" data-r>
-      <summary><span>Preferisci una traccia? Prepara il messaggio in pochi clic</span><i aria-hidden="true"></i></summary>
-      <form class="composer" id="composer" aria-labelledby="comp-title" novalidate>
-        <h3 id="comp-title">Raccontaci il tuo progetto</h3>
-        <p>Scegli cosa ti serve: prepariamo noi il messaggio, tu lo invii con un clic.</p>
+    <form class="req" id="composer" data-r aria-labelledby="comp-title" novalidate>
+      <div class="req__side">
+        <div>
+          <p class="req__eyebrow">Richiesta di progetto</p>
+          <h3 class="req__title" id="comp-title">Raccontaci il tuo <em>progetto</em></h3>
+          <p class="req__intro">Scegli cosa ti serve e indica la tua attività: prepariamo noi il messaggio, tu lo invii dal tuo programma di posta.</p>
+        </div>
+        <div class="summary" id="summary" aria-live="polite">
+          <div class="summary__head"><span>Il tuo progetto</span><span class="summary__state"><i></i><span id="sumState">In compilazione</span></span></div>
+          <dl>
+            <dt>Servizio</dt><dd id="sumSvc">Sito web</dd>
+            <dt>Attività</dt><dd id="sumAtt" class="is-empty">Da indicare</dd>
+          </dl>
+          <details>
+            <summary>Anteprima del messaggio <b aria-hidden="true">+</b></summary>
+            <div class="preview" id="preview"></div>
+          </details>
+        </div>
+      </div>
+      <div class="req__main">
         <fieldset>
-          <legend>Di cosa hai bisogno?</legend>
-          <div class="opts">
-            <label class="opt"><input type="checkbox" name="servizio" value="un sito web" checked><span>Sito web</span></label>
-            <label class="opt"><input type="checkbox" name="servizio" value="un’identità visiva"><span>Identità visiva</span></label>
-            <label class="opt"><input type="checkbox" name="servizio" value="una landing page"><span>Landing page</span></label>
-            <label class="opt"><input type="checkbox" name="servizio" value="un consiglio su cosa scegliere"><span>Non lo so ancora</span></label>
+          <legend class="step-h"><b>01</b><span>Di cosa hai bisogno?</span><small>Puoi sceglierne più di uno</small></legend>
+          <div class="svcs">
+              <label class="svc-card"><input type="checkbox" name="servizio" value="Sito web" checked><span class="svc-card__box"><span class="svc-card__name">Sito web</span><span class="svc-card__desc">Un sito su misura, pensato per ogni schermo.</span><span class="svc-card__check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.3l2.3 2.3 4.7-5"/></svg></span></span></label>
+              <label class="svc-card"><input type="checkbox" name="servizio" value="Identità visiva"><span class="svc-card__box"><span class="svc-card__name">Identità visiva</span><span class="svc-card__desc">Logo, palette e coerenza del brand.</span><span class="svc-card__check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.3l2.3 2.3 4.7-5"/></svg></span></span></label>
+              <label class="svc-card"><input type="checkbox" name="servizio" value="Landing page"><span class="svc-card__box"><span class="svc-card__name">Landing page</span><span class="svc-card__desc">Una pagina mirata per un obiettivo preciso.</span><span class="svc-card__check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.3l2.3 2.3 4.7-5"/></svg></span></span></label>
+              <label class="svc-card"><input type="checkbox" name="servizio" value="Non lo so ancora"><span class="svc-card__box"><span class="svc-card__name">Non lo so ancora</span><span class="svc-card__desc">Ti aiutiamo a scegliere la soluzione giusta.</span><span class="svc-card__check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.3l2.3 2.3 4.7-5"/></svg></span></span></label>
           </div>
         </fieldset>
-        <label for="cAtt">La tua attività</label>
-        <input type="text" id="cAtt" name="attivita" placeholder="Es. ristorante, negozio, studio professionale" autocomplete="organization">
-        <div class="preview" id="preview" aria-live="polite"></div>
-        <div class="composer__btns">
-          <a class="btn" id="bMail" href="mailto:studioweb.digitalservice@gmail.com">Invia via email <svg viewBox="0 0 22 10" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M0 5h20.5M16.5 1l4 4-4 4"/></svg></a>
-          <button class="link" type="button" id="bCopy" style="align-self:flex-start;margin-top:4px">Copia il messaggio</button>
+        <div>
+          <label class="step-h" for="cAtt"><b>02</b><span>La tua attività</span></label>
+          <div class="field" id="attField">
+            <input type="text" id="cAtt" name="attivita" placeholder="Es. ristorante, negozio, studio professionale" autocomplete="organization" maxlength="80">
+            <span class="field__line" aria-hidden="true"></span>
+            <svg class="field__ok" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><circle cx="11" cy="11" r="10"/><path d="M6.8 11.3l2.8 2.8 5.6-6"/></svg>
+          </div>
         </div>
-      </form>
-    </details>
+        <div class="req__actions">
+          <a class="send" id="bMail" href="mailto:studioweb.digitalservice@gmail.com">
+            <span>Invia la tua richiesta</span>
+            <span class="send__icon" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M3.5 12.5l9-9M5 3.5h7.5V11"/></svg></span>
+          </a>
+          <div class="req__sub">
+            <button class="copybtn" type="button" id="bCopy"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><rect x="5" y="5" width="9" height="9"/><path d="M11 5V2H2v9h3"/></svg>Copia il messaggio</button>
+            <span class="req__hint">Si apre il tuo programma di posta con la richiesta già compilata.</span>
+          </div>
+        </div>
+      </div>
+      <div class="toast-ok" id="copyToast" role="status" aria-live="polite"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="8" cy="8" r="7"/><path d="M5 8.2l2 2 4-4.4"/></svg><span>Messaggio copiato!</span></div>
+    </form>
   </div>
 </section>
 
@@ -1056,31 +1146,73 @@ const CONFIG = {
 
   const form = $('#composer'), prev = $('#preview'), note = $('#cNote');
   const bM = $('#bMail');
-  const message = () => {
+  const REQ_SUBJECT = 'Nuova richiesta di progetto — Studio Web';
+  const UNSURE = 'Non lo so ancora';
+  const joinList = a => a.length > 1 ? a.slice(0, -1).join(', ') + ' e ' + a[a.length - 1] : (a[0] || '');
+  const getData = () => {
     const sel = $$('input[name=servizio]:checked', form).map(i => i.value);
-    const att = $('#cAtt').value.trim();
-    let need = sel.length ? (sel.length > 1 ? sel.slice(0, -1).join(', ') + ' e ' + sel[sel.length - 1] : sel[0]) : 'un progetto digitale';
-    return `Ciao STUDIO WEB, vorrei ${need}` + (att ? ` per la mia attività: ${att}.` : '.') + `\nPossiamo sentirci per parlarne?`;
+    const known = sel.filter(v => v !== UNSURE);
+    const att = $('#cAtt').value.replace(/\s+/g, ' ').trim();
+    let svc;
+    if (known.length) svc = joinList(known) + (sel.includes(UNSURE) ? ' (gradito un vostro consiglio)' : '');
+    else if (sel.includes(UNSURE)) svc = 'Da definire insieme';
+    else svc = '';
+    return { svc, att };
+  };
+  const message = () => {
+    const { svc, att } = getData();
+    return 'Buongiorno Studio Web,\n\n' +
+      'vorrei ricevere informazioni per un nuovo progetto digitale.\n\n' +
+      'Servizio richiesto: ' + (svc || 'da definire insieme') + '\n' +
+      'Tipo di attività: ' + (att || 'da specificare') + '\n\n' +
+      'Resto a disposizione per raccontarvi i dettagli e conoscere i prossimi passi.\n' +
+      'Grazie e a presto.';
+  };
+  const setVal = (el, val, empty) => {
+    const txt = val || empty;
+    if (el.textContent !== txt) {
+      el.textContent = txt;
+      el.classList.toggle('is-empty', !val);
+      el.classList.remove('flash'); void el.offsetWidth; el.classList.add('flash');
+    }
   };
   const update = () => {
+    const { svc, att } = getData();
+    setVal($('#sumSvc'), svc, 'Da scegliere');
+    setVal($('#sumAtt'), att, 'Da indicare');
+    const ready = !!svc && !!att;
+    $('#summary').classList.toggle('is-ready', ready);
+    $('#sumState').textContent = ready ? 'Pronto' : 'In compilazione';
+    $('#attField').classList.toggle('has-value', !!att);
     const m = message();
     prev.textContent = m;
-    if (EMAIL) bM.href = `mailto:${EMAIL}?subject=${encodeURIComponent(SUBJECT)}&body=${encodeURIComponent(m)}`;
+    if (EMAIL) bM.href = `mailto:${EMAIL}?subject=${encodeURIComponent(REQ_SUBJECT)}&body=${encodeURIComponent(m)}`;
   };
   form.addEventListener('input', update);
+  form.addEventListener('change', update);
   form.addEventListener('submit', e => e.preventDefault());
-  [bM, $('#ctaMail')].forEach(b => b.addEventListener('click', () => { note.textContent = 'Si sta aprendo il tuo programma di posta con il messaggio già pronto.'; }));
+  $('#ctaMail').addEventListener('click', () => { note.textContent = 'Si sta aprendo il tuo programma di posta con il messaggio già pronto.'; });
 
-  const copy = async (text, ok, selectEl) => {
-    try { await navigator.clipboard.writeText(text); note.textContent = ok; }
+  const toast = $('#copyToast'); let toastT;
+  const showToast = (txt) => {
+    toast.querySelector('span').textContent = txt;
+    toast.classList.add('show'); clearTimeout(toastT);
+    toastT = setTimeout(() => toast.classList.remove('show'), 2400);
+  };
+  const copy = async (text, onOk, selectEl, onFallback) => {
+    try { await navigator.clipboard.writeText(text); onOk(); }
     catch (err) {
       const r = document.createRange(); r.selectNodeContents(selectEl);
       const s = getSelection(); s.removeAllRanges(); s.addRange(r);
-      note.textContent = 'Testo selezionato: premi Copia sulla tastiera.';
+      onFallback();
     }
   };
-  $('#bCopyMail').addEventListener('click', () => copy(EMAIL, 'Indirizzo email copiato negli appunti.', dMail));
-  $('#bCopy').addEventListener('click', () => copy(message(), 'Messaggio copiato negli appunti.', prev));
+  $('#bCopyMail').addEventListener('click', () => copy(EMAIL, () => { note.textContent = 'Indirizzo email copiato negli appunti.'; }, dMail, () => { note.textContent = 'Indirizzo selezionato: premi Copia sulla tastiera.'; }));
+  $('#bCopy').addEventListener('click', () => {
+    update();
+    const det = prev.closest('details'); if (det) det.open = true;
+    copy(message(), () => showToast('Messaggio copiato!'), prev, () => showToast('Testo selezionato: premi Copia'));
+  });
   update();
 
   $('#year').textContent = new Date().getFullYear();

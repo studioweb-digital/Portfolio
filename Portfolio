@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>STUDIO WEB Portfolio</title>
+<meta name="description" content="Portfolio di STUDIO WEB: presentazione di 8 slide con tre siti web demo — Osteria Nobile (ristorante), Black Label (barberia) e Casa Aurea (boutique hotel).">
+<meta name="theme-color" content="#0D0D0B">
+<meta property="og:type" content="website">
+<meta property="og:title" content="STUDIO WEB — Portfolio">
+<meta property="og:description" content="Portfolio di STUDIO WEB: presentazione di 8 slide con tre siti web demo — Osteria Nobile (ristorante), Black Label (barberia) e Casa Aurea (boutique hotel).">
+<meta property="og:url" content="https://studioweb-digital.github.io/Portfolio/">
+<meta property="og:image" content="https://studioweb-digital.github.io/Portfolio/slides/slide-1.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230D0D0B'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='28' text-anchor='middle' fill='%23A8894F'%3ESW%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap">
+<style>
+:root{
+  --ink:#0D0D0B;
+  --panel:#161613;
+  --line:#2B2A25;
+  --ivory:#F3EEE4;
+  --muted:#9C9689;
+  --gold:#A8894F;
+  --gold-2:#C9AE7C;
+  --forest:#1B2620;
+  --display:"Cormorant Garamond", Cambria, Georgia, serif;
+  --body:"Jost", "Helvetica Neue", Arial, sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{background:var(--ink)}
+body{
+  color:var(--ivory);font-family:var(--body);font-weight:300;font-size:15px;line-height:1.6;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));
+  padding-right:max(16px, env(safe-area-inset-right, 0px));
+  overflow-x:hidden;
+}
+a{color:inherit}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:1px solid var(--gold-2);outline-offset:3px}
+
+.wrap{max-width:1280px;margin:0 auto;display:flex;flex-direction:column;gap:22px;padding-block:22px 40px}
+
+/* header */
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:baseline;gap:14px}
+.brand b{font-family:var(--display);font-weight:500;font-size:22px;letter-spacing:.32em}
+.brand span{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+.top-actions{display:flex;align-items:center;gap:10px}
+.chip{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.ghost{display:inline-flex;align-items:center;gap:8px;height:36px;padding:0 14px;border:1px solid var(--line);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ivory);transition:border-color .3s,color .3s}
+.ghost:hover{border-color:var(--gold);color:var(--gold-2)}
+.ghost svg{width:14px;height:14px}
+
+/* stage */
+.stage{position:relative;width:min(100%, calc((100vh - 250px) * 16 / 9));min-width:min(100%, 320px);margin:0 auto;aspect-ratio:16/9;max-width:100%;background:#000;box-shadow:0 30px 80px -30px rgba(0,0,0,.9),0 0 0 1px var(--line)}
+.slide{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .55s ease,visibility 0s linear .55s}
+.slide.is-active{opacity:1;visibility:visible;transition:opacity .55s ease,visibility 0s}
+.slide img{display:block;width:100%;height:100%;object-fit:contain;user-select:none;-webkit-user-drag:none}
+.hot{position:absolute;display:block;border-radius:2px;transition:box-shadow .25s,background-color .25s}
+.hot:hover,.hot:focus-visible{box-shadow:0 0 0 1px var(--gold-2);background:rgba(201,174,124,.08)}
+.stage:fullscreen{width:100vw;height:100vh;aspect-ratio:auto;box-shadow:none}
+
+/* controls */
+.controls{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.label{display:flex;align-items:baseline;gap:14px;min-width:0}
+.count{font-family:var(--display);font-size:26px;color:var(--gold-2);font-variant-numeric:tabular-nums;white-space:nowrap}
+.count small{font-size:16px;color:var(--muted)}
+.name{font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--ivory);overflow-wrap:anywhere}
+.arrows{display:flex;gap:10px}
+.arrow{width:46px;height:46px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;transition:background-color .3s,border-color .3s,color .3s}
+.arrow:hover:not(:disabled){background:var(--ivory);color:var(--ink);border-color:var(--ivory)}
+.arrow:disabled{opacity:.3;cursor:default}
+.arrow svg{width:18px;height:18px}
+
+/* filmstrip */
+.strip{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:10px}
+.thumb{position:relative;aspect-ratio:16/9;max-width:100%;overflow:hidden;opacity:.5;outline:1px solid var(--line);transition:opacity .3s,outline-color .3s}
+.thumb img{display:block;width:100%;height:100%;object-fit:cover}
+.thumb:hover{opacity:.85}
+.thumb[aria-current="true"]{opacity:1;outline-color:var(--gold)}
+.hint{font-size:12px;color:var(--muted)}
+
+/* projects */
+.projects{border-top:1px solid var(--line);padding-top:26px;display:flex;flex-direction:column;gap:18px}
+.projects h2{margin:0;font-family:var(--display);font-weight:400;font-size:30px;line-height:1.1}
+.projects h2 em{color:var(--gold-2)}
+.plist{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.plink{display:flex;flex-direction:column;gap:4px;padding:18px 20px;background:var(--panel);border:1px solid var(--line);text-decoration:none;transition:border-color .3s,transform .4s}
+.plink:hover{border-color:var(--gold);transform:translateY(-2px)}
+.plink span{font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+.plink b{font-family:var(--display);font-weight:500;font-size:24px}
+.plink i{font-style:normal;font-size:12.5px;color:var(--muted);overflow-wrap:anywhere}
+.foot{font-size:12px;color:var(--muted)}
+
+@media (max-width:760px){
+  .strip{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .plist{grid-template-columns:1fr}
+  .stage{width:100%}
+  .brand span{display:none}
+}
+.transcript .tlist{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.transcript .tlist>li{padding:16px 18px;border:1px solid var(--line);min-width:0}
+.transcript .tlist a{text-decoration:none;color:var(--gold-2);font-size:12px;letter-spacing:.18em;text-transform:uppercase}
+.transcript .tlist a:hover{text-decoration:underline}
+.transcript ul{margin:10px 0 0;padding-left:18px;color:var(--muted);font-size:13.5px}
+@media (max-width:760px){.transcript .tlist{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand"><b>STUDIO WEB</b><span>Portfolio</span></div>
+    <div class="top-actions">
+      <span class="chip">8 slide</span>
+      <button class="ghost" id="fs" type="button" aria-label="Schermo intero">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M1 5V1h4M11 1h4v4M15 11v4h-4M5 15H1v-4"/></svg>Schermo intero
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <div class="stage" id="stage" role="region" aria-roledescription="presentazione" aria-label="Presentazione STUDIO WEB">
+      <div class="slide is-active"><img src="slides/slide-1.jpg" alt="Slide 1: Copertina. PORTFOLIO  ·  SITI WEB SU MISURA · STUDIO · WEB · Il tuo business merita una presenza digitale all’altezza. · TRE PROGETTI · Osteria Nobile  ·  Black Label  ·  Casa Aurea" width="2400" height="1350" decoding="async"><a class="hot" href="https://studioweb-digital.github.io/Osteria-Nobile/" target="_blank" rel="noopener" aria-label="Apri il sito: Striscia osteria" style="left:54.922%;top:12.667%;width:12.15%;height:62.609%"></a><a class="hot" href="https://studioweb-digital.github.io/Black-Label/" target="_blank" rel="noopener" aria-label="Apri il sito: Striscia blacklabel" style="left:68.572%;top:8.0%;width:12.15%;height:62.609%"></a><a class="hot" href="https://studioweb-digital.github.io/Casa-Aurea/" target="_blank" rel="noopener" aria-label="Apri il sito: Striscia casaaurea" style="left:82.222%;top:16.667%;width:12.15%;height:62.609%"></a></div>
+      <div class="slide"><img src="slides/slide-2.jpg" alt="Slide 2: La nostra filosofia. LA NOSTRA FILOSOFIA · Ogni attività ha una propria identità. Il nostro lavoro è trasformarla in un’esperienza digitale capace di comunicarla. · La prima impressione · Spesso il sito è il primo incontro con la tua attività. · La tua identità · Colori, parole e immagini che raccontano chi sei. · Dall’interesse al contatto · Informazioni chiare e un invito semplice ad agire." width="2400" height="1350" loading="lazy" decoding="async"><a class="hot" href="https://studioweb-digital.github.io/Osteria-Nobile/" target="_blank" rel="noopener" aria-label="Apri il sito: Smartphone osteria" style="left:63.547%;top:24.267%;width:8.85%;height:34.054%"></a><a class="hot" href="https://studioweb-digital.github.io/Black-Label/" target="_blank" rel="noopener" aria-label="Apri il sito: Smartphone blacklabel" style="left:74.272%;top:16.267%;width:8.85%;height:34.054%"></a><a class="hot" href="https://studioweb-digital.github.io/Casa-Aurea/" target="_blank" rel="noopener" aria-label="Apri il sito: Smartphone casaaurea" style="left:84.997%;top:20.933%;width:8.85%;height:34.054%"></a></div>
+      <div class="slide"><img src="slides/slide-3.jpg" alt="Slide 3: Osteria Nobile. 01 — RISTORAZIONE · Osteria Nobile · Il sito di un ristorante di cucina italiana contemporanea. Verde bosco, avorio e oro, tipografia raffinata e un ritmo calmo: come una cena senza fretta. · Carta interattiva divisa per portate · Galleria di piatti e ambienti · Modulo di richiesta prenotazione · Pensato anche per smartphone" width="2400" height="1350" loading="lazy" decoding="async"><a class="hot" href="https://studioweb-digital.github.io/Osteria-Nobile/" target="_blank" rel="noopener" aria-label="Apri il sito: Link pulsante" style="left:5.625%;top:71.333%;width:17.25%;height:6.133%"></a><a class="hot" href="https://studioweb-digital.github.io/Osteria-Nobile/" target="_blank" rel="noopener" aria-label="Apri il sito: Schermata home" style="left:43.125%;top:14.0%;width:46.875%;height:52.083%"></a><a class="hot" href="https://studioweb-digital.github.io/Osteria-Nobile/" target="_blank" rel="noopener" aria-label="Apri il sito: Schermata carta" style="left:39.375%;top:62.0%;width:24.75%;height:27.5%"></a><a class="hot" href="https://studioweb-digital.github.io/Osteria-Nobile/" target="_blank" rel="noopener" aria-label="Apri il sito: Smartphone" style="left:84.375%;top:41.6%;width:9.45%;height:36.363%"></a></div>
+      <div class="slide"><img src="slides/slide-4.jpg" alt="Slide 4: Black Label. 02 — BARBERIA · Black Label · Una barberia maschile dal carattere deciso: nero profondo e oro, titoli monumentali, contrasti forti e una galleria che mette in primo piano tagli e dettagli." width="2400" height="1350" loading="lazy" decoding="async"><a class="hot" href="https://studioweb-digital.github.io/Black-Label/" target="_blank" rel="noopener" aria-label="Apri il sito: Schermata home" style="left:0.0%;top:0.0%;width:49.5%;height:100.0%"></a><a class="hot" href="https://studioweb-digital.github.io/Black-Label/" target="_blank" rel="noopener" aria-label="Apri il sito: Link pulsante" style="left:55.125%;top:61.6%;width:17.25%;height:6.133%"></a><a class="hot" href="https://studioweb-digital.github.io/Black-Label/" target="_blank" rel="noopener" aria-label="Apri il sito: Schermata servizi" style="left:55.125%;top:74.933%;width:15.75%;height:17.5%"></a><a class="hot" href="https://studioweb-digital.github.io/Black-Label/" target="_blank" rel="noopener" aria-label="Apri il sito: Schermata galleria" style="left:72.375%;top:74.933%;width:15.75%;height:17.5%"></a></div>
+      <div class="slide"><img src="slides/slide-5.jpg" alt="Slide 5: Casa Aurea. 03 — OSPITALITÀ · Casa Aurea · Un boutique hotel immaginario a Roma. Avorio, champagne e oro satinato, fotografia immersiva e animazioni lente che trasmettono calma e lusso." width="2400" height="1350" loading="lazy" decoding="async"><a class="hot" href="https://studioweb-digital.github.io/Casa-Aurea/" target="_blank" rel="noopener" aria-label="Apri il sito: Link pulsante" style="left:5.625%;top:71.333%;width:17.25%;height:6.133%"></a><a class="hot" href="https://studioweb-digital.github.io/Casa-Aurea/" target="_blank" rel="noopener" aria-label="Apri il sito: Schermata home" style="left:47.625%;top:14.0%;width:46.875%;height:52.083%"></a><a class="hot" href="https://studioweb-digital.github.io/Casa-Aurea/" target="_blank" rel="noopener" aria-label="Apri il sito: Schermata camere" style="left:58.875%;top:68.267%;width:17.625%;height:19.583%"></a><a class="hot" href="https://studioweb-digital.github.io/Casa-Aurea/" target="_blank" rel="noopener" aria-label="Apri il sito: Schermata esperienze" style="left:78.0%;top:68.267%;width:17.625%;height:19.583%"></a><a class="hot" href="https://studioweb-digital.github.io/Casa-Aurea/" target="_blank" rel="noopener" aria-label="Apri il sito: Smartphone" style="left:43.65%;top:37.6%;width:9.825%;height:37.806%"></a></div>
+      <div class="slide"><img src="slides/slide-6.jpg" alt="Slide 6: Cosa possiamo realizzare. COSA POSSIAMO REALIZZARE · Tutto ciò che serve alla tua attività online · Siti web personalizzati · Un progetto unico, costruito sulla tua attività. · Design responsive · Perfetto su smartphone, tablet e computer. · Prodotti e servizi · Listini, menu e offerte presentati con chiarezza. · Gallerie fotografiche · Immagini che fanno vivere l’esperienza. · Contatti e prenotazioni · Moduli semplici per ricevere richieste. · Animazioni e interazioni · Dettagli in movimento, curati e mai eccessivi." width="2400" height="1350" loading="lazy" decoding="async"></div>
+      <div class="slide"><img src="slides/slide-7.jpg" alt="Slide 7: Il tuo progetto. IL TUO PROGETTO · Non un sito uguale a tutti gli altri. · Il sito giusto per la tua attività. · Ogni progetto parte dalla tua attività: chi sei, a chi ti rivolgi, cosa vuoi comunicare. Da lì nascono colori, tipografia, immagini e funzioni." width="2400" height="1350" loading="lazy" decoding="async"><a class="hot" href="https://studioweb-digital.github.io/Osteria-Nobile/" target="_blank" rel="noopener" aria-label="Apri il sito: Identità Osteria Nobile immagine" style="left:7.125%;top:52.667%;width:25.072%;height:14.0%"></a><a class="hot" href="https://studioweb-digital.github.io/Black-Label/" target="_blank" rel="noopener" aria-label="Apri il sito: Identità Black Label immagine" style="left:37.447%;top:52.667%;width:25.072%;height:14.0%"></a><a class="hot" href="https://studioweb-digital.github.io/Casa-Aurea/" target="_blank" rel="noopener" aria-label="Apri il sito: Identità Casa Aurea immagine" style="left:67.77%;top:52.667%;width:25.072%;height:14.0%"></a></div>
+      <div class="slide"><img src="slides/slide-8.jpg" alt="Slide 8: Contatti. PARLIAMO DELLA TUA ATTIVITÀ · Il prossimo progetto potrebbe essere il tuo." width="2400" height="1350" loading="lazy" decoding="async"><a class="hot" href="https://studioweb-digital.github.io/Osteria-Nobile/" target="_blank" rel="noopener" aria-label="Apri il sito: Progetto Osteria Nobile immagine" style="left:62.625%;top:16.667%;width:16.5%;height:18.333%"></a><a class="hot" href="https://studioweb-digital.github.io/Osteria-Nobile/" target="_blank" rel="noopener" aria-label="Apri il sito: Progetto Osteria Nobile link" style="left:81.0%;top:27.6%;width:13.5%;height:3.467%"></a><a class="hot" href="https://studioweb-digital.github.io/Black-Label/" target="_blank" rel="noopener" aria-label="Apri il sito: Progetto Black Label immagine" style="left:62.625%;top:40.0%;width:16.5%;height:18.333%"></a><a class="hot" href="https://studioweb-digital.github.io/Black-Label/" target="_blank" rel="noopener" aria-label="Apri il sito: Progetto Black Label link" style="left:81.0%;top:50.933%;width:13.5%;height:3.467%"></a><a class="hot" href="https://studioweb-digital.github.io/Casa-Aurea/" target="_blank" rel="noopener" aria-label="Apri il sito: Progetto Casa Aurea immagine" style="left:62.625%;top:63.333%;width:16.5%;height:18.333%"></a><a class="hot" href="https://studioweb-digital.github.io/Casa-Aurea/" target="_blank" rel="noopener" aria-label="Apri il sito: Progetto Casa Aurea link" style="left:81.0%;top:74.267%;width:13.5%;height:3.467%"></a></div>
+    </div>
+  </main>
+
+  <div class="controls">
+    <div class="label"><span class="count" id="count">01 <small>/ 08</small></span><span class="name" id="name">Copertina</span></div>
+    <div class="arrows">
+      <button class="arrow" id="prev" type="button" aria-label="Slide precedente"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12.5 4 6.5 10l6 6"/></svg></button>
+      <button class="arrow" id="next" type="button" aria-label="Slide successiva"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M7.5 4l6 6-6 6"/></svg></button>
+    </div>
+  </div>
+
+  <nav class="strip" id="strip" aria-label="Tutte le slide"></nav>
+  <p class="hint">Usa le frecce della tastiera o scorri con il dito. Le immagini dei siti nelle slide sono cliccabili.</p>
+
+  <section class="projects" aria-labelledby="ptitle">
+    <h2 id="ptitle">Visita i <em>progetti</em></h2>
+    <div class="plist">
+      <a class="plink" href="https://studioweb-digital.github.io/Osteria-Nobile/" target="_blank" rel="noopener"><span>Ristorazione</span><b>Osteria Nobile</b><i>studioweb-digital.github.io/Osteria-Nobile</i></a>
+      <a class="plink" href="https://studioweb-digital.github.io/Black-Label/" target="_blank" rel="noopener"><span>Barberia</span><b>Black Label</b><i>studioweb-digital.github.io/Black-Label</i></a>
+      <a class="plink" href="https://studioweb-digital.github.io/Casa-Aurea/" target="_blank" rel="noopener"><span>Ospitalità</span><b>Casa Aurea</b><i>studioweb-digital.github.io/Casa-Aurea</i></a>
+    </div>
+    <p class="foot">Presentazione di STUDIO WEB · siti demo realizzati come progetti dimostrativi.</p>
+  </section>
+
+  <section class="projects transcript" aria-labelledby="ttitle">
+    <h2 id="ttitle">Testo delle <em>slide</em></h2>
+    <ol class="tlist">
+      <li id="testo-1"><a href="slides/slide-1.jpg" target="_blank" rel="noopener"><b>Slide 1 · Copertina</b></a><ul><li>PORTFOLIO · SITI WEB SU MISURA</li><li>STUDIO</li><li>WEB</li><li>Il tuo business merita una presenza digitale all’altezza.</li><li>TRE PROGETTI</li><li>Osteria Nobile · Black Label · Casa Aurea</li></ul></li>
+      <li id="testo-2"><a href="slides/slide-2.jpg" target="_blank" rel="noopener"><b>Slide 2 · La nostra filosofia</b></a><ul><li>LA NOSTRA FILOSOFIA</li><li>Ogni attività ha una propria identità. Il nostro lavoro è trasformarla in un’esperienza digitale capace di comunicarla.</li><li>La prima impressione</li><li>Spesso il sito è il primo incontro con la tua attività.</li><li>La tua identità</li><li>Colori, parole e immagini che raccontano chi sei.</li><li>Dall’interesse al contatto</li><li>Informazioni chiare e un invito semplice ad agire.</li></ul></li>
+      <li id="testo-3"><a href="slides/slide-3.jpg" target="_blank" rel="noopener"><b>Slide 3 · Osteria Nobile</b></a><ul><li>01 — RISTORAZIONE</li><li>Osteria Nobile</li><li>Il sito di un ristorante di cucina italiana contemporanea. Verde bosco, avorio e oro, tipografia raffinata e un ritmo calmo: come una cena senza fretta.</li><li>Carta interattiva divisa per portate</li><li>Galleria di piatti e ambienti</li><li>Modulo di richiesta prenotazione</li><li>Pensato anche per smartphone</li></ul></li>
+      <li id="testo-4"><a href="slides/slide-4.jpg" target="_blank" rel="noopener"><b>Slide 4 · Black Label</b></a><ul><li>02 — BARBERIA</li><li>Black Label</li><li>Una barberia maschile dal carattere deciso: nero profondo e oro, titoli monumentali, contrasti forti e una galleria che mette in primo piano tagli e dettagli.</li><li>Hero tipografico ad alto impatto</li><li>Listino servizi con prezzi chiari</li><li>Galleria a scorrimento orizzontale</li><li>Richiesta di appuntamento integrata</li></ul></li>
+      <li id="testo-5"><a href="slides/slide-5.jpg" target="_blank" rel="noopener"><b>Slide 5 · Casa Aurea</b></a><ul><li>03 — OSPITALITÀ</li><li>Casa Aurea</li><li>Un boutique hotel immaginario a Roma. Avorio, champagne e oro satinato, fotografia immersiva e animazioni lente che trasmettono calma e lusso.</li><li>Hero a tutto schermo con zoom lento</li><li>Camere e suite con dettagli e prezzi</li><li>Galleria immersiva a schermo intero</li><li>Prenotazione con date e riepilogo</li></ul></li>
+      <li id="testo-6"><a href="slides/slide-6.jpg" target="_blank" rel="noopener"><b>Slide 6 · Cosa possiamo realizzare</b></a><ul><li>COSA POSSIAMO REALIZZARE</li><li>Tutto ciò che serve alla tua attività online</li><li>Siti web personalizzati</li><li>Un progetto unico, costruito sulla tua attività.</li><li>Design responsive</li><li>Perfetto su smartphone, tablet e computer.</li><li>Prodotti e servizi</li><li>Listini, menu e offerte presentati con chiarezza.</li><li>Gallerie fotografiche</li><li>Immagini che fanno vivere l’esperienza.</li><li>Contatti e prenotazioni</li><li>Moduli semplici per ricevere richieste.</li><li>Animazioni e interazioni</li><li>Dettagli in movimento, curati e mai eccessivi.</li></ul></li>
+      <li id="testo-7"><a href="slides/slide-7.jpg" target="_blank" rel="noopener"><b>Slide 7 · Il tuo progetto</b></a><ul><li>IL TUO PROGETTO</li><li>Non un sito uguale a tutti gli altri.</li><li>Il sito giusto per la tua attività.</li><li>Ogni progetto parte dalla tua attività: chi sei, a chi ti rivolgi, cosa vuoi comunicare. Da lì nascono colori, tipografia, immagini e funzioni.</li><li>Osteria Nobile</li><li>Verde bosco · Avorio · Oro</li><li>Italiana + DM Sans</li><li>Calore e convivialità</li><li>Black Label</li><li>Nero · Avorio · Oro</li><li>Anton + Playfair Display</li><li>Carattere e precisione</li><li>Casa Aurea</li><li>Avorio · Champagne · Oro</li><li>Cormorant Garamond + Jost</li><li>Calma e lusso</li></ul></li>
+      <li id="testo-8"><a href="slides/slide-8.jpg" target="_blank" rel="noopener"><b>Slide 8 · Contatti</b></a><ul><li>PARLIAMO DELLA TUA ATTIVITÀ</li><li>Il prossimo progetto</li><li>potrebbe essere il tuo.</li><li>Raccontaci la tua attività: insieme capiremo quale sito può rappresentarla al meglio, con lo stesso livello di cura dei progetti che hai visto.</li><li>CONTATTI</li><li>Email — da inserire</li><li>Telefono — da inserire</li><li>I PROGETTI</li><li>RISTORAZIONE</li><li>Osteria Nobile</li><li>BARBERIA</li><li>Black Label</li><li>OSPITALITÀ</li><li>Casa Aurea</li></ul></li>
+    </ol>
+  </section>
+</div>
+
+<script>
+(() => {
+  const NAMES = ["Copertina","La nostra filosofia","Osteria Nobile","Black Label","Casa Aurea","Cosa possiamo realizzare","Il tuo progetto","Contatti"];
+  const slides = [...document.querySelectorAll('.slide')];
+  const strip = document.getElementById('strip');
+  const pad = n => String(n).padStart(2, '0');
+  let cur = 0;
+
+  slides.forEach((s, i) => {
+    const b = document.createElement('button');
+    b.className = 'thumb'; b.type = 'button';
+    b.setAttribute('aria-label', `Slide ${i + 1}: ${NAMES[i]}`);
+    const im = document.createElement('img');
+    im.src = s.querySelector('img').src; im.alt = ''; im.loading = 'lazy';
+    b.appendChild(im);
+    b.addEventListener('click', () => go(i));
+    strip.appendChild(b);
+  });
+  const thumbs = [...strip.children];
+
+  function go(i, fromHash) {
+    cur = Math.max(0, Math.min(slides.length - 1, i));
+    slides.forEach((s, j) => {
+      const on = j === cur;
+      s.classList.toggle('is-active', on);
+      s.setAttribute('aria-hidden', !on);
+      s.querySelectorAll('a').forEach(a => a.tabIndex = on ? 0 : -1);
+    });
+    thumbs.forEach((t, j) => t.setAttribute('aria-current', j === cur));
+    document.getElementById('count').innerHTML = `${pad(cur + 1)} <small>/ ${pad(slides.length)}</small>`;
+    document.getElementById('name').textContent = NAMES[cur];
+    document.getElementById('prev').disabled = cur === 0;
+    document.getElementById('next').disabled = cur === slides.length - 1;
+    if (!fromHash) { try { history.replaceState(null, '', '#slide-' + (cur + 1)); } catch (e) {} }
+  }
+
+  document.getElementById('prev').addEventListener('click', () => go(cur - 1));
+  document.getElementById('next').addEventListener('click', () => go(cur + 1));
+  document.addEventListener('keydown', e => {
+    if (e.target.closest && e.target.closest('input,textarea')) return;
+    if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') { e.preventDefault(); go(cur + 1); }
+    if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); go(cur - 1); }
+    if (e.key === 'Home') go(0);
+    if (e.key === 'End') go(slides.length - 1);
+  });
+
+  const stage = document.getElementById('stage');
+  let x0 = null;
+  stage.addEventListener('touchstart', e => { x0 = e.touches[0].clientX; }, { passive: true });
+  stage.addEventListener('touchend', e => {
+    if (x0 === null) return;
+    const dx = e.changedTouches[0].clientX - x0;
+    if (Math.abs(dx) > 40) go(cur + (dx < 0 ? 1 : -1));
+    x0 = null;
+  });
+
+  document.getElementById('fs').addEventListener('click', async () => {
+    try {
+      if (document.fullscreenElement) await document.exitFullscreen();
+      else await stage.requestFullscreen();
+    } catch (e) { document.getElementById('fs').hidden = true; }
+  });
+  if (!stage.requestFullscreen) document.getElementById('fs').hidden = true;
+
+  const fromHash = () => { const m = /^#slide-(\d+)$/.exec(location.hash); return m ? +m[1] - 1 : 0; };
+  window.addEventListener('hashchange', () => go(fromHash(), true));
+  go(fromHash(), true);
+})();
+</script>
+</body>
+</html>

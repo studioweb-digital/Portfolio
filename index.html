@@ -11,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>STUDIO WEB — Siti web, identità visiva e soluzioni digitali</title>
 <meta name="description" content="STUDIO WEB è un’agenzia digitale che progetta siti web su misura, identità visive e soluzioni digitali per attività e brand che vogliono presentarsi al meglio.">
-<meta name="keywords" content="agenzia digitale, siti web, web design, identità visiva, logo, landing page, siti responsive">
+<meta name="keywords" content="agenzia digitale, siti web, web design, restyling sito, identità visiva, logo, landing page, siti responsive, preventivo sito web">
 <meta name="author" content="STUDIO WEB">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#111111">
@@ -20,7 +20,13 @@
 <meta property="og:site_name" content="STUDIO WEB">
 <meta property="og:title" content="STUDIO WEB — Diamo forma alle idee. Creiamo esperienze digitali.">
 <meta property="og:description" content="Strategia, design e tecnologia per costruire una presenza digitale capace di distinguere il tuo brand.">
+<meta property="og:url" content="https://studioweb-digital.github.io/Portfolio/">
+<meta property="og:image" content="https://studioweb-digital.github.io/Portfolio/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://studioweb-digital.github.io/Portfolio/og-image.jpg">
+<link rel="canonical" href="https://studioweb-digital.github.io/Portfolio/">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23111111'/%3E%3Crect x='14' y='14' width='36' height='36' fill='none' stroke='%23C6A66A' stroke-width='1.6'/%3E%3Ctext x='32' y='40' font-family='Georgia,serif' font-size='19' text-anchor='middle' fill='%23F5F1E8' letter-spacing='1'%3ESW%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -120,12 +126,13 @@ ul,ol{list-style:none}
 .brand:hover .brand__mark::before{transform:translate(5px,5px)}
 .brand:hover .brand__mark::after{transform:translate(-5px,-5px)}
 .brand__name{font-family:var(--serif);font-weight:500;font-size:19px;letter-spacing:.36em;white-space:nowrap}
-.nav__links{display:flex;gap:clamp(20px,2.6vw,38px)}
-.nav__links a{position:relative;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,241,232,.75);padding:8px 0;transition:color .3s}
+.nav__links{display:flex;gap:clamp(18px,2.1vw,34px)}
+.nav__links a{position:relative;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,241,232,.75);padding:8px 0;transition:color .3s}
 .nav__links a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--bronze);transform:scaleX(0);transform-origin:right;transition:transform .55s var(--out)}
 .nav__links a:hover,.nav__links a.active{color:var(--ivory)}
 .nav__links a:hover::after,.nav__links a.active::after{transform:scaleX(1);transform-origin:left}
-.nav__cta{min-height:44px;padding:0 20px;font-size:10.5px}
+.nav__cta{min-height:44px;padding:0 20px;font-size:10.5px;white-space:nowrap}
+.nav__links a{white-space:nowrap}
 .burger{display:none;position:relative;width:46px;height:46px}
 .burger span{position:absolute;left:11px;height:1px;background:var(--ivory);transition:transform .6s var(--out),top .6s var(--out),width .4s,left .4s}
 .burger span:nth-child(1){top:19px;width:24px}
@@ -137,11 +144,11 @@ ul,ol{list-style:none}
 .drawer.open{clip-path:circle(150% at calc(100% - 44px) 40px);visibility:visible;transition:clip-path .9s var(--io),visibility 0s}
 .drawer ol{align-self:center}
 .drawer li{overflow:hidden;border-bottom:1px solid var(--line-d)}
-.drawer li a{display:flex;align-items:baseline;gap:18px;padding:12px 0;font-family:var(--serif);font-weight:300;font-size:clamp(36px,9.5vw,60px);line-height:1.1;transform:translateY(105%);transition:transform .8s var(--out),color .3s}
+.drawer li a{display:flex;align-items:baseline;gap:18px;padding:10px 0;font-family:var(--serif);font-weight:300;font-size:clamp(32px,8.4vw,56px);line-height:1.1;transform:translateY(105%);transition:transform .8s var(--out),color .3s}
 .drawer li a span{font-family:var(--sans);font-size:11px;letter-spacing:.2em;color:var(--bronze)}
 .drawer li a:hover{color:var(--bronze)}
 .drawer.open li a{transform:none}
-.drawer.open li:nth-child(1) a{transition-delay:.2s}.drawer.open li:nth-child(2) a{transition-delay:.26s}.drawer.open li:nth-child(3) a{transition-delay:.32s}.drawer.open li:nth-child(4) a{transition-delay:.38s}.drawer.open li:nth-child(5) a{transition-delay:.44s}
+.drawer.open li:nth-child(1) a{transition-delay:.2s}.drawer.open li:nth-child(2) a{transition-delay:.26s}.drawer.open li:nth-child(3) a{transition-delay:.32s}.drawer.open li:nth-child(4) a{transition-delay:.38s}.drawer.open li:nth-child(5) a{transition-delay:.44s}.drawer.open li:nth-child(6) a{transition-delay:.5s}.drawer.open li:nth-child(7) a{transition-delay:.56s}
 .drawer__foot{display:flex;flex-direction:column;gap:14px;margin-top:30px;opacity:0;transform:translateY(14px);transition:opacity .5s,transform .6s var(--out)}
 .drawer.open .drawer__foot{opacity:1;transform:none;transition-delay:.55s}
 .drawer__foot p{font-size:12.5px;color:var(--mute-d)}
@@ -374,7 +381,7 @@ ul,ol{list-style:none}
 .sc-id{display:grid}
 
 /* ==============================================================
-   METODO (avorio)
+   METODO (nero)
    ============================================================== */
 .method{--veil:var(--carbon);background:var(--carbon);color:var(--ivory);padding-block:var(--sec)}
 .method__grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:start}
@@ -470,6 +477,7 @@ ul,ol{list-style:none}
 .req fieldset{border:0;margin:0;padding:0;min-width:0}
 .svcs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 .svc-card{position:relative;display:block;cursor:pointer;min-width:0}
+.svc-card--wide{grid-column:span 2}
 .svc-card input{position:absolute;opacity:0;width:1px;height:1px;margin:0}
 .svc-card__box{position:relative;display:flex;flex-direction:column;gap:6px;height:100%;padding:18px 54px 18px 18px;border:1px solid rgba(245,241,232,.16);background:rgba(245,241,232,.015);overflow:hidden;transition:border-color .45s var(--ease),background-color .45s var(--ease),transform .45s var(--out)}
 .svc-card__box::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:100%;background:var(--bronze);transform:scaleX(0);transform-origin:left;transition:transform .6s var(--out)}
@@ -516,19 +524,94 @@ ul,ol{list-style:none}
 .btn[aria-disabled="true"] svg{display:none}
 
 /* ==============================================================
+   PACCHETTI (avorio)
+   ============================================================== */
+.plans{--veil:var(--ivory-2);background:var(--ivory-2);color:var(--carbon);padding-block:var(--sec);position:relative;overflow:hidden}
+.plans__head{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:end;margin-bottom:clamp(50px,6vw,90px)}
+.plans__head > div{grid-column:1 / span 7}
+.plans__head .kicker{margin-bottom:26px}
+.plans__head p{grid-column:9 / span 4;color:var(--mute-l)}
+.plans__head p b{font-weight:500;color:var(--carbon)}
+.plans__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,1.6vw,24px);align-items:stretch}
+.plan{position:relative;display:flex;flex-direction:column;padding:clamp(28px,2.8vw,42px);background:var(--ivory);border:1px solid var(--line-l);transition:transform .6s var(--out),box-shadow .6s var(--ease),border-color .4s}
+.plan::before{content:"";position:absolute;left:-1px;top:-1px;width:56px;height:2px;background:var(--bronze-ink);transition:width .8s var(--out)}
+.plan:hover{transform:translateY(-6px);box-shadow:0 40px 70px -40px rgba(17,17,17,.35);border-color:rgba(17,17,17,.22)}
+.plan:hover::before{width:calc(100% + 2px)}
+.plan__top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:26px}
+.plan__n{font-family:var(--serif);font-size:15px;letter-spacing:.2em;color:var(--bronze-ink)}
+.plan__badge{font-size:9.5px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;padding:6px 11px;border:1px solid currentColor;color:var(--bronze)}
+.plan__name{font-family:var(--sans);font-weight:500;font-size:clamp(26px,2.3vw,34px);letter-spacing:.16em;line-height:1}
+.plan__for{margin-top:14px;font-family:var(--serif);font-size:clamp(20px,1.6vw,23px);line-height:1.35;color:#3A3732;min-height:3.9em}
+.plan__price{display:flex;align-items:baseline;gap:12px;margin:26px 0;padding:18px 0;border-block:1px solid var(--line-l)}
+.plan__price b{font-family:var(--serif);font-weight:400;font-style:italic;font-size:clamp(28px,2.4vw,36px);line-height:1;color:var(--bronze-ink)}
+.plan__price span{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute-l)}
+.plan__list{display:flex;flex-direction:column;gap:12px;margin-bottom:34px;flex:1}
+.plan__list li{position:relative;padding-left:26px;font-size:14.5px;line-height:1.55;color:#3A3732}
+.plan__list li::before{content:"";position:absolute;left:0;top:.5em;width:12px;height:6px;border-left:1px solid var(--bronze-ink);border-bottom:1px solid var(--bronze-ink);transform:rotate(-45deg)}
+.plan .btn{width:100%;justify-content:space-between}
+.plan--feat{background:var(--carbon);color:var(--ivory);border-color:var(--carbon);box-shadow:0 50px 90px -50px rgba(17,17,17,.7)}
+.plan--feat::before{background:var(--bronze)}
+.plan--feat .plan__n{color:var(--bronze)}
+.plan--feat .plan__for{color:rgba(245,241,232,.85)}
+.plan--feat .plan__price{border-color:var(--line-d)}
+.plan--feat .plan__price b{color:var(--bronze)}
+.plan--feat .plan__price span{color:var(--mute-d)}
+.plan--feat .plan__list li{color:rgba(245,241,232,.78)}
+.plan--feat .plan__list li::before{border-color:var(--bronze)}
+.plan--feat:hover{border-color:var(--carbon)}
+.plans__note{margin-top:clamp(30px,3.4vw,46px);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px 30px;padding-top:24px;border-top:1px solid var(--line-l);font-size:14px;color:var(--mute-l)}
+.plans__note a{color:var(--carbon)}
+
+/* ==============================================================
+   DOMANDE FREQUENTI (nero)
+   ============================================================== */
+.faq{--veil:var(--carbon);background:var(--carbon);color:var(--ivory);padding-block:var(--sec)}
+.faq__grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:start}
+.faq__aside{grid-column:1 / span 4;position:sticky;top:calc(var(--nav) + 50px)}
+.faq__aside .kicker{margin-bottom:26px}
+.faq__aside p{margin-top:26px;color:rgba(245,241,232,.7);max-width:34ch}
+.faq__aside .link{margin-top:22px;color:var(--bronze)}
+.faq__list{grid-column:6 / span 7;border-top:1px solid var(--line-d)}
+.faq__item{border-bottom:1px solid var(--line-d)}
+.faq__item summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:clamp(22px,2.4vw,30px) 0;font-family:var(--serif);font-weight:300;font-size:clamp(22px,2vw,30px);line-height:1.2;transition:color .3s}
+.faq__item summary::-webkit-details-marker{display:none}
+.faq__item summary:hover{color:var(--bronze)}
+.faq__item summary i{position:relative;flex:none;width:38px;height:38px;border:1px solid var(--line-d);border-radius:50%;transition:transform .6s var(--out),background-color .4s,border-color .4s}
+.faq__item summary i::before,.faq__item summary i::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:1px;background:currentColor;transform:translate(-50%,-50%)}
+.faq__item summary i::after{transform:translate(-50%,-50%) rotate(90deg)}
+.faq__item[open] summary i{transform:rotate(45deg);background:var(--bronze);border-color:var(--bronze);color:var(--carbon)}
+.faq__item p{max-width:60ch;padding:0 50px 28px 0;color:rgba(245,241,232,.7)}
+.faq__item[open] p{animation:faqIn .6s var(--out)}
+@keyframes faqIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+
+/* ---------- modulo: scelta pacchetto ---------- */
+.pkgs{display:flex;flex-wrap:wrap;gap:10px}
+.pkg{position:relative;cursor:pointer}
+.pkg input{position:absolute;opacity:0;width:1px;height:1px;margin:0}
+.pkg span{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border:1px solid rgba(245,241,232,.2);font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,241,232,.8);transition:border-color .4s,background-color .4s,color .4s}
+.pkg:hover span{border-color:rgba(198,166,106,.6)}
+.pkg input:checked + span{border-color:var(--bronze);background:var(--bronze);color:var(--carbon)}
+.pkg input:focus-visible + span{outline:1px solid var(--bronze);outline-offset:3px}
+.hero__note{margin-top:26px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute-d)}
+.hero__note a{color:var(--ivory);border-bottom:1px solid rgba(198,166,106,.6);padding-bottom:2px;transition:color .3s}
+.hero__note a:hover{color:var(--bronze)}
+.foot__col a.foot__mail{overflow-wrap:anywhere}
+
+/* ==============================================================
    FOOTER
    ============================================================== */
 .foot{border-top:1px solid var(--line-d);padding-top:clamp(60px,7vw,100px);overflow:hidden}
 .foot__grid{display:grid;grid-template-columns:repeat(12,1fr);gap:30px 24px;padding-bottom:clamp(50px,6vw,80px)}
-.foot__brand{grid-column:1 / span 5}
+.foot__brand{grid-column:1 / span 4}
 .foot__brand p{margin-top:18px;max-width:36ch;color:var(--mute-d);font-size:14.5px}
-.foot__col{grid-column:span 3}
+.foot__col{grid-column:span 2}
+.foot__col--proj{grid-column:span 3}
 .foot__col:last-child{grid-column:10 / span 3}
 .foot h4{font-size:10.5px;font-weight:400;letter-spacing:.28em;text-transform:uppercase;color:var(--bronze);margin-bottom:18px}
 .foot__col ul{display:flex;flex-direction:column;gap:9px}
 .foot__col a{font-size:14.5px;color:rgba(245,241,232,.78);transition:color .3s,padding-left .4s var(--out)}
 .foot__col a:hover{color:var(--ivory);padding-left:6px}
-.foot__word{font-family:var(--serif);font-weight:300;font-size:clamp(64px,15.6vw,268px);line-height:.8;letter-spacing:.03em;text-align:center;white-space:nowrap;padding-bottom:.05em}
+.foot__word{font-family:var(--serif);font-weight:300;font-size:clamp(56px,13.4vw,236px);line-height:.8;letter-spacing:.02em;text-align:center;white-space:nowrap;padding-bottom:.05em}
 .foot__word em{font-style:italic;color:var(--bronze)}
 .foot__bar{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;padding-block:24px;border-top:1px solid var(--line-d);font-size:12px;color:var(--mute-d)}
 .top-btn{display:inline-flex;align-items:center;gap:10px;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--ivory)}
@@ -539,15 +622,16 @@ ul,ol{list-style:none}
 /* ==============================================================
    RESPONSIVE — riprogettato, non solo ridimensionato
    ============================================================== */
-@media (max-width:1120px){
+@media (max-width:1280px){
   .nav__links,.nav__cta{display:none}
   .burger{display:block}
+}
+@media (max-width:1120px){
   .hero__text{grid-column:1 / -1}
   .stack{grid-column:2 / span 10;margin-top:50px;aspect-ratio:1.5/1}
   .stack .card{width:70%}
   .card:nth-child(1){left:0;top:0}.card:nth-child(2){left:15%;top:20%}.card:nth-child(3){left:30%;top:40%}
   .seal{left:auto;right:-2%;top:-10%}
-  .hero{padding-bottom:110px}
   .about__head{grid-column:1 / -1}
   .about__visual{grid-column:8 / span 5;grid-row:auto;margin-top:50px}
   .about__body{grid-column:1 / span 7;margin-top:50px}
@@ -569,7 +653,15 @@ ul,ol{list-style:none}
   .req__side{border-right:0;border-bottom:1px solid var(--line-d)}
   .summary{margin-top:0}
   .foot__brand{grid-column:1 / -1}
-  .foot__col,.foot__col:last-child{grid-column:span 6}
+  .foot__col,.foot__col--proj,.foot__col:last-child{grid-column:span 4}
+  .plans__head > div,.plans__head p{grid-column:1 / -1}
+  .plans__grid{grid-template-columns:1fr}
+  .plan__for{min-height:0}
+  .faq__aside{grid-column:1 / -1;position:static;margin-bottom:40px}
+  .faq__list{grid-column:1 / -1}
+  .hero__foot{display:none}
+  .hero{padding-bottom:90px}
+  .stack__tag{bottom:-12%}
 }
 @media (max-width:680px){
   :root{--nav:70px}
@@ -602,6 +694,7 @@ ul,ol{list-style:none}
   .cta__icon{width:52px;height:52px}
   .req{margin-top:56px}
   .svcs{grid-template-columns:1fr}
+  .svc-card--wide{grid-column:auto}
   .svc-card__box{padding:15px 50px 15px 16px}
   .send{min-height:70px;padding-left:20px;font-size:11px;letter-spacing:.16em}
   .send__icon{width:48px;height:48px}
@@ -612,7 +705,13 @@ ul,ol{list-style:none}
   .step-h{flex-wrap:wrap;row-gap:4px}
   .step-h small{margin-left:0;flex-basis:100%}
   .summary dt,.summary dd{padding:12px 16px}
-  .foot__col,.foot__col:last-child{grid-column:1 / -1}
+  .foot__col,.foot__col--proj,.foot__col:last-child{grid-column:1 / -1}
+  .hero{padding-bottom:120px}
+  .stack__tag{right:auto;left:0;bottom:-22%}
+  .plan{padding:28px 22px}
+  .faq__item p{padding-right:0}
+  .pkg span{padding:0 14px;letter-spacing:.16em}
+  .hero__note{letter-spacing:.14em;line-height:1.9}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
@@ -622,6 +721,7 @@ ul,ol{list-style:none}
   .js [data-veil]::after{display:none}
   .js .contact__thread,.js .contact__rule[data-r]{transform:none!important}
   .ticker__track,.seal svg,.hero__halo,.chip{animation:none!important}
+  .plan:hover{transform:none}
 }
 </style>
 </head>
@@ -639,11 +739,13 @@ ul,ol{list-style:none}
         <li><a href="#servizi">Servizi</a></li>
         <li><a href="#progetti">Progetti</a></li>
         <li><a href="#metodo">Metodo</a></li>
+        <li><a href="#pacchetti">Pacchetti</a></li>
+        <li><a href="#faq">FAQ</a></li>
         <li><a href="#contatti">Contatti</a></li>
       </ul>
     </nav>
     <div style="display:flex;align-items:center;gap:14px">
-      <a href="#contatti" class="btn btn--line nav__cta">Richiedi un progetto</a>
+      <a href="#contatti" class="btn btn--line nav__cta">Richiedi un preventivo</a>
       <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="drawer"><span></span><span></span><span class="sr-only">Apri il menu</span></button>
     </div>
   </div>
@@ -656,12 +758,14 @@ ul,ol{list-style:none}
       <li><a href="#servizi"><span>02</span>Servizi</a></li>
       <li><a href="#progetti"><span>03</span>Progetti</a></li>
       <li><a href="#metodo"><span>04</span>Metodo</a></li>
-      <li><a href="#contatti"><span>05</span>Contatti</a></li>
+      <li><a href="#pacchetti"><span>05</span>Pacchetti</a></li>
+      <li><a href="#faq"><span>06</span>Domande</a></li>
+      <li><a href="#contatti"><span>07</span>Contatti</a></li>
     </ol>
   </nav>
   <div class="drawer__foot">
-    <a href="#contatti" class="btn">Richiedi un progetto <svg viewBox="0 0 22 10" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M0 5h20.5M16.5 1l4 4-4 4"/></svg></a>
-    <p>Siti web, identità visiva e soluzioni digitali.</p>
+    <a href="#contatti" class="btn">Richiedi un preventivo <svg viewBox="0 0 22 10" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M0 5h20.5M16.5 1l4 4-4 4"/></svg></a>
+    <p>Siti web, restyling, identità visiva e soluzioni digitali.<br>studioweb.digitalservice@gmail.com</p>
   </div>
 </div>
 
@@ -680,11 +784,12 @@ ul,ol{list-style:none}
         <span class="ln ln--gap"><span><em>Creiamo esperienze</em></span></span>
         <span class="ln"><span><em>digitali.</em></span></span>
       </h1>
-      <p class="hero__lead" data-in="2">Strategia, design e tecnologia per costruire una presenza digitale capace di distinguere il tuo brand.</p>
+      <p class="hero__lead" data-in="2">Progettiamo siti web su misura per attività che vogliono presentarsi in modo professionale, farsi trovare e trasformare le visite in richieste di contatto.</p>
       <div class="hero__actions" data-in="3">
-        <a href="#contatti" class="btn">Richiedi un progetto <svg viewBox="0 0 22 10" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M0 5h20.5M16.5 1l4 4-4 4"/></svg></a>
+        <a href="#contatti" class="btn">Richiedi un preventivo <svg viewBox="0 0 22 10" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M0 5h20.5M16.5 1l4 4-4 4"/></svg></a>
         <a href="#progetti" class="link">Guarda i progetti <svg viewBox="0 0 22 10" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M0 5h20.5M16.5 1l4 4-4 4"/></svg></a>
       </div>
+      <p class="hero__note" data-in="4">Pacchetti <a href="#pacchetti">Start · Business · Restyling</a> — su preventivo</p>
     </div>
     <a class="stack" href="#progetti" aria-label="Vai ai progetti: Osteria Nobile, Black Label, Casa Aurea">
       <div class="seal" aria-hidden="true"><svg viewBox="0 0 120 120"><defs><path id="ring" d="M60 60m-47 0a47 47 0 1 1 94 0a47 47 0 1 1-94 0"/></defs><text><textPath href="#ring">Studio Web · Esperienze digitali ·</textPath></text><rect x="53" y="53" width="14" height="14" fill="none" stroke="currentColor" stroke-width=".8"/></svg></div>
@@ -704,7 +809,7 @@ ul,ol{list-style:none}
   </div>
 </section>
 
-<div class="ticker" aria-hidden="true"><div class="ticker__track"><div class="ticker__set"><span>Siti web</span><span>Identità visiva</span><span>Landing page</span><span>Esperienze digitali</span><span>Progetti su misura</span></div><div class="ticker__set"><span>Siti web</span><span>Identità visiva</span><span>Landing page</span><span>Esperienze digitali</span><span>Progetti su misura</span></div></div></div>
+<div class="ticker" aria-hidden="true"><div class="ticker__track"><div class="ticker__set"><span>Siti web</span><span>Identità visiva</span><span>Landing page</span><span>Restyling</span><span>Progetti su misura</span></div><div class="ticker__set"><span>Siti web</span><span>Identità visiva</span><span>Landing page</span><span>Restyling</span><span>Progetti su misura</span></div></div></div>
 
 <!-- ============================ CHI SIAMO ============================ -->
 <section class="about on-light" id="chi-siamo" aria-labelledby="about-title">
@@ -873,6 +978,68 @@ ul,ol{list-style:none}
   </div>
 </section>
 
+<!-- ============================ PACCHETTI ============================ -->
+<section class="plans on-light" id="pacchetti" aria-labelledby="plans-title">
+  <div class="wrap">
+    <div class="plans__head">
+      <div>
+        <p class="kicker" data-r>Pacchetti</p>
+        <h2 class="title split" id="plans-title" data-r="fade"><span class="ln"><span>Tre formule,</span></span><span class="ln"><span><em>un progetto su misura.</em></span></span></h2>
+      </div>
+      <p data-r style="--d:.15s"><b>Ogni pacchetto è su preventivo.</b> Il costo dipende dalle sezioni, dai contenuti e dalle funzionalità di cui hai bisogno: scegli la formula più vicina alla tua attività e ti prepariamo una proposta dedicata.</p>
+    </div>
+    <div class="plans__grid">
+        <article class="plan" data-r style="--d:0.08s" aria-labelledby="plan-start">
+          <div class="plan__top"><span class="plan__n">01</span></div>
+          <h3 class="plan__name" id="plan-start">START</h3>
+          <p class="plan__for">Per l’attività che vuole una prima presenza online curata e professionale.</p>
+          <p class="plan__price"><b>Su preventivo</b><span>su misura</span></p>
+          <ul class="plan__list"><li>Sito su misura in una pagina</li><li>Presentazione, servizi e contatti</li><li>Design responsive per smartphone, tablet e computer</li><li>Pulsanti di contatto via email</li><li>Pubblicazione online del sito</li></ul>
+          <a class="btn btn--dark" href="#composer" data-pkg="START">Richiedi un preventivo <svg viewBox="0 0 22 10" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M0 5h20.5M16.5 1l4 4-4 4"/></svg></a>
+        </article>
+        <article class="plan plan--feat" data-r style="--d:0.16s" aria-labelledby="plan-business">
+          <div class="plan__top"><span class="plan__n">02</span><span class="plan__badge">Il più completo</span></div>
+          <h3 class="plan__name" id="plan-business">BUSINESS</h3>
+          <p class="plan__for">Per l’attività che vuole un sito completo, capace di raccontarla e di generare richieste.</p>
+          <p class="plan__price"><b>Su preventivo</b><span>su misura</span></p>
+          <ul class="plan__list"><li>Sito su misura con più sezioni o pagine</li><li>Immagine coordinata: palette, caratteri e stile</li><li>Gallerie, listini, menu o schede servizi</li><li>Modulo di richiesta o di prenotazione</li><li>Animazioni curate e impostazione SEO di base</li><li>Pubblicazione online del sito</li></ul>
+          <a class="btn" href="#composer" data-pkg="BUSINESS">Richiedi un preventivo <svg viewBox="0 0 22 10" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M0 5h20.5M16.5 1l4 4-4 4"/></svg></a>
+        </article>
+        <article class="plan" data-r style="--d:0.24s" aria-labelledby="plan-restyling">
+          <div class="plan__top"><span class="plan__n">03</span></div>
+          <h3 class="plan__name" id="plan-restyling">RESTYLING</h3>
+          <p class="plan__for">Per chi ha già un sito e vuole renderlo moderno, chiaro e convincente.</p>
+          <p class="plan__price"><b>Su preventivo</b><span>su misura</span></p>
+          <ul class="plan__list"><li>Analisi del sito attuale</li><li>Nuovo design, mantenendo i contenuti validi</li><li>Ottimizzazione per smartphone</li><li>Testi e pulsanti più chiari per i contatti</li><li>Pubblicazione della nuova versione</li></ul>
+          <a class="btn btn--dark" href="#composer" data-pkg="RESTYLING">Richiedi un preventivo <svg viewBox="0 0 22 10" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M0 5h20.5M16.5 1l4 4-4 4"/></svg></a>
+        </article>
+    </div>
+    <div class="plans__note" data-r>
+      <span>Non sai quale scegliere? Descrivici la tua attività: ti consigliamo noi la soluzione più adatta.</span>
+      <a href="#composer" class="link" data-pkg="Da valutare insieme">Chiedi un consiglio <svg viewBox="0 0 22 10" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M0 5h20.5M16.5 1l4 4-4 4"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FAQ ============================ -->
+<section class="faq" id="faq" aria-labelledby="faq-title">
+  <div class="wrap faq__grid">
+    <div class="faq__aside">
+      <p class="kicker" data-r>Domande frequenti</p>
+      <h2 class="title split" id="faq-title" data-r="fade"><span class="ln"><span>Prima di</span></span><span class="ln"><span><em>iniziare.</em></span></span></h2>
+      <p data-r>Le risposte alle domande più comuni. Per tutto il resto, scrivici: rispondiamo via email.</p>
+      <a href="#contatti" class="link" data-r>Scrivici <svg viewBox="0 0 22 10" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M0 5h20.5M16.5 1l4 4-4 4"/></svg></a>
+    </div>
+    <div class="faq__list" data-r>
+      <details class="faq__item"><summary>Quanto costa un sito?<i aria-hidden="true"></i></summary><p>Ogni progetto è su preventivo: il costo dipende dal numero di sezioni, dai contenuti e dalle funzionalità richieste. Scegli il pacchetto più vicino alle tue esigenze, raccontaci la tua attività e ti invieremo una proposta su misura.</p></details>
+      <details class="faq__item"><summary>Che differenza c’è tra START, BUSINESS e RESTYLING?<i aria-hidden="true"></i></summary><p>START è pensato per una prima presenza online in una pagina; BUSINESS per un sito completo, con più sezioni, immagine coordinata e moduli di richiesta; RESTYLING per rinnovare un sito che hai già, rendendolo moderno e adatto agli smartphone.</p></details>
+      <details class="faq__item"><summary>Il sito sarà adatto agli smartphone?<i aria-hidden="true"></i></summary><p>Sì. Ogni sito viene progettato e verificato su smartphone, tablet e computer, perché la maggior parte delle persone scopre un’attività dal telefono.</p></details>
+      <details class="faq__item"><summary>I progetti del portfolio sono clienti reali?<i aria-hidden="true"></i></summary><p>No. Osteria Nobile, Black Label e Casa Aurea sono progetti dimostrativi realizzati da STUDIO WEB per mostrare il nostro approccio in tre settori diversi. Prezzi, prenotazioni e contenuti al loro interno sono indicativi.</p></details>
+      <details class="faq__item"><summary>Come si inizia?<i aria-hidden="true"></i></summary><p>Compila il modulo qui sotto oppure scrivi a studioweb.digitalservice@gmail.com. Partiamo dall’ascolto: capiamo l’attività e gli obiettivi, poi ti proponiamo la soluzione e il preventivo.</p></details>
+    </div>
+  </div>
+</section>
+
 <!-- ============================ CONTATTI ============================ -->
 <section class="contact on-light" id="contatti" aria-labelledby="contact-title">
   <span class="contact__thread" aria-hidden="true"></span>
@@ -881,10 +1048,10 @@ ul,ol{list-style:none}
     <h2 class="contact__title split" id="contact-title" data-r="fade"><span class="ln"><span>Ogni grande progetto</span></span><span class="ln"><span>inizia da <em>un’idea.</em></span></span></h2>
     <span class="contact__rule" data-r aria-hidden="true"></span>
     <div class="contact__row">
-      <p class="contact__lead" data-r>Raccontaci cosa hai in mente. Daremo forma insieme alla tua prossima presenza digitale.</p>
+      <p class="contact__lead" data-r>Raccontaci cosa hai in mente: ti rispondiamo via email con una proposta e un preventivo su misura.</p>
       <div class="contact__action" data-r style="--d:.15s">
-        <a class="cta" id="ctaMail" href="mailto:studioweb.digitalservice@gmail.com?subject=Nuovo%20progetto%20%E2%80%94%20Studio%20Web&amp;body=Buongiorno%20Studio%20Web%2C%0A%0Avorrei%20parlarvi%20di%20un%20nuovo%20progetto.%20Ecco%20qualche%20informazione%20per%20iniziare%3A%0A%0A-%20La%20mia%20attivit%C3%A0%20o%20il%20mio%20brand%3A%0A-%20Il%20progetto%20che%20ho%20in%20mente%3A%0A-%20Servizi%20di%20interesse%20%28sito%20web%2C%20identit%C3%A0%20visiva%2C%20soluzioni%20digitali%29%3A%0A-%20Esigenze%20o%20tempistiche%20particolari%3A%0A%0AResto%20in%20attesa%20di%20un%20vostro%20riscontro.%0AGrazie%20e%20a%20presto%2C%0A">
-          <span>Parliamo del tuo progetto</span>
+        <a class="cta" id="ctaMail" href="mailto:studioweb.digitalservice@gmail.com?subject=Nuovo%20progetto%20%E2%80%94%20Studio%20Web&amp;body=Buongiorno%20Studio%20Web%2C%0A%0Avorrei%20parlarvi%20di%20un%20nuovo%20progetto.%20Ecco%20qualche%20informazione%20per%20iniziare%3A%0A%0A-%20La%20mia%20attivit%C3%A0%20o%20il%20mio%20brand%3A%0A-%20Il%20progetto%20che%20ho%20in%20mente%3A%0A-%20Servizi%20di%20interesse%20%28sito%20web%2C%20identit%C3%A0%20visiva%2C%20soluzioni%20digitali%29%3A%0A-%20Pacchetto%20di%20interesse%20(START%2C%20BUSINESS%2C%20RESTYLING%20o%20da%20valutare)%3A%0A-%20Esigenze%20o%20tempistiche%20particolari%3A%0A%0AResto%20in%20attesa%20di%20un%20vostro%20riscontro.%0AGrazie%20e%20a%20presto%2C%0A">
+          <span>Scrivici una email</span>
           <span class="cta__icon" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M3.5 12.5l9-9M5 3.5h7.5V11"/></svg></span>
         </a>
         <div class="contact__mail">
@@ -900,12 +1067,13 @@ ul,ol{list-style:none}
         <div>
           <p class="req__eyebrow">Richiesta di progetto</p>
           <h3 class="req__title" id="comp-title">Raccontaci il tuo <em>progetto</em></h3>
-          <p class="req__intro">Scegli cosa ti serve e indica la tua attività: prepariamo noi il messaggio, tu lo invii dal tuo programma di posta.</p>
+          <p class="req__intro">Scegli cosa ti serve, il pacchetto e la tua attività: prepariamo noi il messaggio, tu lo invii dal tuo programma di posta.</p>
         </div>
         <div class="summary" id="summary" aria-live="polite">
           <div class="summary__head"><span>Il tuo progetto</span><span class="summary__state"><i></i><span id="sumState">In compilazione</span></span></div>
           <dl>
             <dt>Servizio</dt><dd id="sumSvc">Sito web</dd>
+            <dt>Pacchetto</dt><dd id="sumPkg">Da valutare insieme</dd>
             <dt>Attività</dt><dd id="sumAtt" class="is-empty">Da indicare</dd>
           </dl>
           <details>
@@ -920,14 +1088,24 @@ ul,ol{list-style:none}
           <div class="svcs">
               <label class="svc-card"><input type="checkbox" name="servizio" value="Sito web" checked><span class="svc-card__box"><span class="svc-card__name">Sito web</span><span class="svc-card__desc">Un sito su misura, pensato per ogni schermo.</span><span class="svc-card__check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.3l2.3 2.3 4.7-5"/></svg></span></span></label>
               <label class="svc-card"><input type="checkbox" name="servizio" value="Identità visiva"><span class="svc-card__box"><span class="svc-card__name">Identità visiva</span><span class="svc-card__desc">Logo, palette e coerenza del brand.</span><span class="svc-card__check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.3l2.3 2.3 4.7-5"/></svg></span></span></label>
+              <label class="svc-card"><input type="checkbox" name="servizio" value="Restyling del sito"><span class="svc-card__box"><span class="svc-card__name">Restyling</span><span class="svc-card__desc">Rinnovare un sito che hai già.</span><span class="svc-card__check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.3l2.3 2.3 4.7-5"/></svg></span></span></label>
               <label class="svc-card"><input type="checkbox" name="servizio" value="Landing page"><span class="svc-card__box"><span class="svc-card__name">Landing page</span><span class="svc-card__desc">Una pagina mirata per un obiettivo preciso.</span><span class="svc-card__check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.3l2.3 2.3 4.7-5"/></svg></span></span></label>
-              <label class="svc-card"><input type="checkbox" name="servizio" value="Non lo so ancora"><span class="svc-card__box"><span class="svc-card__name">Non lo so ancora</span><span class="svc-card__desc">Ti aiutiamo a scegliere la soluzione giusta.</span><span class="svc-card__check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.3l2.3 2.3 4.7-5"/></svg></span></span></label>
+              <label class="svc-card svc-card--wide"><input type="checkbox" name="servizio" value="Non lo so ancora"><span class="svc-card__box"><span class="svc-card__name">Non lo so ancora</span><span class="svc-card__desc">Ti aiutiamo a scegliere la soluzione giusta.</span><span class="svc-card__check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.3l2.3 2.3 4.7-5"/></svg></span></span></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend class="step-h"><b>02</b><span>Quale pacchetto?</span><small>Tutti su preventivo</small></legend>
+          <div class="pkgs">
+            <label class="pkg"><input type="radio" name="pacchetto" value="START"><span>Start</span></label>
+            <label class="pkg"><input type="radio" name="pacchetto" value="BUSINESS"><span>Business</span></label>
+            <label class="pkg"><input type="radio" name="pacchetto" value="RESTYLING"><span>Restyling</span></label>
+            <label class="pkg"><input type="radio" name="pacchetto" value="Da valutare insieme" checked><span>Da valutare</span></label>
           </div>
         </fieldset>
         <div>
-          <label class="step-h" for="cAtt"><b>02</b><span>La tua attività</span></label>
+          <label class="step-h" for="cAtt"><b>03</b><span>La tua attività</span></label>
           <div class="field" id="attField">
-            <input type="text" id="cAtt" name="attivita" placeholder="Es. ristorante, negozio, studio professionale" autocomplete="organization" maxlength="80">
+            <input type="text" id="cAtt" name="attivita" placeholder="Es. ristorante, negozio, studio" autocomplete="organization" maxlength="80">
             <span class="field__line" aria-hidden="true"></span>
             <svg class="field__ok" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><circle cx="11" cy="11" r="10"/><path d="M6.8 11.3l2.8 2.8 5.6-6"/></svg>
           </div>
@@ -960,15 +1138,19 @@ ul,ol{list-style:none}
       </div>
       <div class="foot__col" data-r style="--d:.08s">
         <h4>Esplora</h4>
-        <ul><li><a href="#chi-siamo">Chi siamo</a></li><li><a href="#servizi">Servizi</a></li><li><a href="#progetti">Progetti</a></li><li><a href="#metodo">Metodo</a></li><li><a href="#contatti">Contatti</a></li></ul>
+        <ul><li><a href="#chi-siamo">Chi siamo</a></li><li><a href="#servizi">Servizi</a></li><li><a href="#progetti">Progetti</a></li><li><a href="#pacchetti">Pacchetti</a></li><li><a href="#faq">Domande</a></li><li><a href="#contatti">Contatti</a></li></ul>
       </div>
-      <div class="foot__col" data-r style="--d:.16s">
+      <div class="foot__col foot__col--proj" data-r style="--d:.16s">
         <h4>Progetti dimostrativi</h4>
         <ul>
           <li><a data-proj="osteria" href="https://studioweb-digital.github.io/Osteria-Nobile/" target="_blank" rel="noopener">Osteria Nobile ↗</a></li>
           <li><a data-proj="blacklabel" href="https://studioweb-digital.github.io/Black-Label/" target="_blank" rel="noopener">Black Label ↗</a></li>
           <li><a data-proj="casaaurea" href="https://studioweb-digital.github.io/Casa-Aurea/" target="_blank" rel="noopener">Casa Aurea ↗</a></li>
         </ul>
+      </div>
+      <div class="foot__col" data-r style="--d:.24s">
+        <h4>Contatti</h4>
+        <ul><li><a class="foot__mail" id="fMail" href="mailto:studioweb.digitalservice@gmail.com">studioweb.digitalservice@gmail.com</a></li><li><a href="#contatti">Richiedi un preventivo</a></li></ul>
       </div>
     </div>
     <div class="foot__word" aria-hidden="true" data-r>STUDIO <em>WEB</em></div>
@@ -1060,7 +1242,7 @@ const CONFIG = {
   const secIO = new IntersectionObserver(es => es.forEach(e => {
     if (e.isIntersecting) navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
   }), { rootMargin: '-45% 0px -50% 0px' });
-  ['chi-siamo', 'servizi', 'progetti', 'metodo', 'contatti'].forEach(id => secIO.observe(document.getElementById(id)));
+  ['chi-siamo', 'servizi', 'progetti', 'metodo', 'pacchetti', 'faq', 'contatti'].forEach(id => secIO.observe(document.getElementById(id)));
 
   /* ---------- comparsa allo scorrimento ---------- */
   const io = new IntersectionObserver(es => es.forEach(e => {
@@ -1095,7 +1277,7 @@ const CONFIG = {
   burger.addEventListener('click', () => setMenu(burger.getAttribute('aria-expanded') !== 'true'));
   $$('a', drawer).forEach(a => a.addEventListener('click', () => setMenu(false)));
   addEventListener('keydown', e => { if (e.key === 'Escape' && drawer.classList.contains('open')) { setMenu(false); burger.focus(); } });
-  matchMedia('(min-width:1121px)').addEventListener?.('change', e => { if (e.matches) setMenu(false); });
+  matchMedia('(min-width:1281px)').addEventListener?.('change', e => { if (e.matches) setMenu(false); });
 
   /* ---------- servizi: scena attiva ---------- */
   const items = $$('.svc__item'), scenes = $$('.svc__stage .scene');
@@ -1142,16 +1324,17 @@ const CONFIG = {
   const EMAIL = (CONFIG.email || '').trim();
   const dMail = $('#dMail');
   const SUBJECT = 'Nuovo progetto — Studio Web';
-  const BODY = "Buongiorno Studio Web,\n\nvorrei parlarvi di un nuovo progetto. Ecco qualche informazione per iniziare:\n\n- La mia attività o il mio brand:\n- Il progetto che ho in mente:\n- Servizi di interesse (sito web, identità visiva, soluzioni digitali):\n- Esigenze o tempistiche particolari:\n\nResto in attesa di un vostro riscontro.\nGrazie e a presto,\n";
+  const BODY = "Buongiorno Studio Web,\n\nvorrei parlarvi di un nuovo progetto. Ecco qualche informazione per iniziare:\n\n- La mia attività o il mio brand:\n- Il progetto che ho in mente:\n- Servizi di interesse (sito web, restyling, identità visiva, soluzioni digitali):\n- Pacchetto di interesse (START, BUSINESS, RESTYLING o da valutare):\n- Esigenze o tempistiche particolari:\n\nResto in attesa di un vostro riscontro.\nGrazie e a presto,\n";
   if (EMAIL) {
     dMail.href = `mailto:${EMAIL}`;
     dMail.textContent = EMAIL;
+    const fM = $('#fMail'); if (fM) { fM.href = `mailto:${EMAIL}`; fM.textContent = EMAIL; }
     $('#ctaMail').href = `mailto:${EMAIL}?subject=${encodeURIComponent(SUBJECT)}&body=${encodeURIComponent(BODY)}`;
   }
 
   const form = $('#composer'), prev = $('#preview'), note = $('#cNote');
   const bM = $('#bMail');
-  const REQ_SUBJECT = 'Nuova richiesta di progetto — Studio Web';
+  const REQ_SUBJECT = 'Richiesta di preventivo — Studio Web';
   const UNSURE = 'Non lo so ancora';
   const joinList = a => a.length > 1 ? a.slice(0, -1).join(', ') + ' e ' + a[a.length - 1] : (a[0] || '');
   const getData = () => {
@@ -1162,13 +1345,15 @@ const CONFIG = {
     if (known.length) svc = joinList(known) + (sel.includes(UNSURE) ? ' (gradito un vostro consiglio)' : '');
     else if (sel.includes(UNSURE)) svc = 'Da definire insieme';
     else svc = '';
-    return { svc, att };
+    const pk = form.querySelector('input[name=pacchetto]:checked');
+    return { svc, att, pkg: pk ? pk.value : '' };
   };
   const message = () => {
-    const { svc, att } = getData();
+    const { svc, att, pkg } = getData();
     return 'Buongiorno Studio Web,\n\n' +
-      'vorrei ricevere informazioni per un nuovo progetto digitale.\n\n' +
+      'vorrei ricevere un preventivo per un nuovo progetto digitale.\n\n' +
       'Servizio richiesto: ' + (svc || 'da definire insieme') + '\n' +
+      'Pacchetto di interesse: ' + (pkg || 'da valutare insieme') + '\n' +
       'Tipo di attività: ' + (att || 'da specificare') + '\n\n' +
       'Resto a disposizione per raccontarvi i dettagli e conoscere i prossimi passi.\n' +
       'Grazie e a presto.';
@@ -1182,8 +1367,9 @@ const CONFIG = {
     }
   };
   const update = () => {
-    const { svc, att } = getData();
+    const { svc, att, pkg } = getData();
     setVal($('#sumSvc'), svc, 'Da scegliere');
+    setVal($('#sumPkg'), pkg, 'Da valutare insieme');
     setVal($('#sumAtt'), att, 'Da indicare');
     const ready = !!svc && !!att;
     $('#summary').classList.toggle('is-ready', ready);
@@ -1196,6 +1382,13 @@ const CONFIG = {
   form.addEventListener('input', update);
   form.addEventListener('change', update);
   form.addEventListener('submit', e => e.preventDefault());
+
+  /* pulsanti dei pacchetti: preselezionano il pacchetto nel modulo */
+  $$('[data-pkg]').forEach(a => a.addEventListener('click', () => {
+    const r = form.querySelector(`input[name=pacchetto][value="${a.dataset.pkg}"]`);
+    if (r) { r.checked = true; update(); }
+    if (a.dataset.pkg === 'RESTYLING') { const c = form.querySelector('input[value="Restyling del sito"]'); const w = form.querySelector('input[value="Sito web"]'); if (c) c.checked = true; if (w) w.checked = false; update(); }
+  }));
   $('#ctaMail').addEventListener('click', () => { note.textContent = 'Si sta aprendo il tuo programma di posta con il messaggio già pronto.'; });
 
   const toast = $('#copyToast'); let toastT;
